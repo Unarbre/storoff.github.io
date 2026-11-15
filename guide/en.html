@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Storoff guide</title>
+  <style>
+    :root {
+      --bg: #fbfaf7; --surface: #ffffff; --text: #24221f; --muted: #77736b;
+      --border: #e2ded6; --accent: #6b4f2a;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1c1b19; --surface: #252421; --text: #ece8e1; --muted: #9b968c;
+              --border: #3a3833; --accent: #d8b07a; }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 4rem; }
+    body { margin: 0; background: var(--bg); color: var(--text);
+           font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; }
+    .bar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center;
+           gap: 1rem; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .bar a { color: var(--text); text-decoration: none; }
+    .bar .home { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; font-weight: 600; }
+    .bar .download { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 999px;
+                     font-size: 0.9rem; }
+    .bar .download:hover { border-color: var(--accent); }
+    main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+    h1 { margin: 0 0 0.5rem; font-family: Georgia, 'Times New Roman', serif; font-size: 2.4rem; }
+    h2 { margin: 3rem 0 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+         font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; }
+    h3 { margin: 2rem 0 0.5rem; font-size: 1.15rem; }
+    hr { display: none; }
+    a { color: var(--accent); }
+    img { display: block; max-width: 100%; height: auto; margin: 1.25rem 0; border: 1px solid var(--border);
+          border-radius: 10px; box-shadow: 0 6px 24px rgb(0 0 0 / 12%); }
+    code { padding: 0.05rem 0.3rem; border: 1px solid var(--border); border-radius: 4px; background: var(--surface);
+           font-size: 0.9em; }
+    table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 1rem 0;
+            font-size: 0.95rem; }
+    th, td { padding: 0.45rem 0.75rem; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { background: var(--surface); }
+    li { margin: 0.2rem 0; }
+    footer { margin-top: 3rem; color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <nav class="bar">
+    <a class="home" href="../">Storoff 1.1.0</a>
+    <a class="download" href="../">Download Storoff</a>
+  </nav>
+  <main>
+<h1 id="storoff-guide">Storoff guide</h1>
+<p><a href="./">Version française</a></p>
+<p>Storoff is a fiction-writing workshop that runs on your computer, with no account and no connection: your
+stories are files in a folder of your disk. This guide goes through everything the application does, screen
+by screen. Every screenshot comes from the sample story &quot;Le Dernier Phare&quot;. The sample story is written in
+French, the language of the spell checker shipped with Storoff (others can be added, see
+<a href="#14-settings-and-files">Settings</a>).</p>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#1-getting-started">Getting started</a></li>
+<li><a href="#2-the-screen-of-a-story">The screen of a story</a></li>
+<li><a href="#3-writing-a-chapter">Writing a chapter</a></li>
+<li><a href="#4-formatting">Formatting</a></li>
+<li><a href="#5-the-names-of-the-story">The names of the story</a></li>
+<li><a href="#6-correcting">Correcting</a></li>
+<li><a href="#7-reading-over-and-reworking">Reading over and reworking</a></li>
+<li><a href="#8-writing-comfort">Writing comfort</a></li>
+<li><a href="#9-sheets">Sheets</a></li>
+<li><a href="#10-overviews">Overviews</a></li>
+<li><a href="#11-maps">Maps</a></li>
+<li><a href="#12-history">History</a></li>
+<li><a href="#13-the-book-and-the-exports">The book and the exports</a></li>
+<li><a href="#14-settings-and-files">Settings and files</a></li>
+<li><a href="#15-keyboard-shortcuts">Keyboard shortcuts</a></li>
+</ol>
+<hr>
+<h2 id="1-getting-started">1. Getting started</h2>
+<h3 id="my-stories">My stories</h3>
+<p><img src="images/en/stories.jpg" alt="The list of stories" loading="lazy"></p>
+<p>The home screen lists your stories, the most recently modified first. Each story is independent: its
+chapters, its sheets, its maps and its history.</p>
+<ul>
+<li><strong>Create</strong>: type a title in the field at the top, then Enter or &quot;Create&quot;. The story opens, ready for its
+first chapter.</li>
+<li><strong>Rename, Duplicate, Delete</strong>: the buttons show when hovering a story. Deleting asks for confirmation and
+takes the history with it.</li>
+<li><strong>Import a story…</strong>: opens a <code>.storoff</code> file (a whole story exported from Storoff, see
+<a href="#the-exports">Exports</a>) and adds it as a new story.</li>
+<li><strong>Settings</strong>: the interface language, the stories folder, the dictionaries (see
+<a href="#14-settings-and-files">Settings</a>).</li>
+</ul>
+<hr>
+<h2 id="2-the-screen-of-a-story">2. The screen of a story</h2>
+<p><img src="images/en/chapter.jpg" alt="A chapter open" loading="lazy"></p>
+<p>The screen has three areas.</p>
+<p><strong>The header</strong>, from left to right:</p>
+<ul>
+<li><strong>My stories</strong> goes back to the list; the <strong>‹ ›</strong> arrows go back to the previous or next screen.</li>
+<li>The <strong>title</strong> of the story, which leads to its <a href="#the-home-of-the-story">home</a>.</li>
+<li>The <strong>spell checker language</strong> (here &quot;Français&quot;): a menu to choose the dictionary of the story.</li>
+<li><strong>The ambience</strong> (the sound wave icon): ambient sounds and typewriter, see
+<a href="#ambience-and-typewriter">Ambience</a>.</li>
+<li><strong>To check</strong>: what Storoff&#39;s tools noticed in the story, see <a href="#to-check">To check</a>.</li>
+<li><strong>Today&#39;s word count</strong> (the ring): daily goal, calendar and sprints, see
+<a href="#daily-goal-and-sprints">Daily goal</a>.</li>
+<li><strong>Export</strong>: the laid-out book, RTF, text, EPUB, whole story.</li>
+<li><strong>The settings</strong> (last icon): the settings of the application.</li>
+</ul>
+<p><strong>The left panel</strong> holds the table of contents and the sheets: characters, places, events, dictionary. Each
+section has its <strong>+</strong> button to create, and sometimes an overview button (map of links, timeline). A right
+click on a sheet offers to delete it.</p>
+<p><strong>The main area</strong> shows the chapter or the sheet that is open. A sheet opened from the text shows in a <strong>side
+panel</strong>, on the right, without leaving the chapter; everything there can be edited.</p>
+<h3 id="the-home-of-the-story">The home of the story</h3>
+<p><img src="images/en/story-home.jpg" alt="The home of the story" loading="lazy"></p>
+<p>The home shows when the story opens, and whenever its title is clicked in the header.</p>
+<p><strong>Take up where you left off</strong> recalls the chapter written last and the sentence where the cursor stood. The
+<strong>note for next time</strong> keeps the idea not to lose (&quot;Brann must reveal the secret of the lantern&quot;); it is
+written on the card or in the menu of the daily goal. <strong>Take it up here</strong> reopens the chapter at that very
+place: the cursor goes back into the sentence, the passage is centred and shines for a moment. Each chapter
+also reopens where its cursor was left.</p>
+<p><strong>The story</strong> gathers what holds for the whole story:</p>
+<ul>
+<li>the <strong>summary</strong>: what the story is about, where it starts, the characters, what is at stake, the end; the
+names of the story are recognised in it and the spell checker goes over it;</li>
+<li>the <strong>notes</strong> of the story: themes, ideas, research… each with a title used as its summary.</li>
+</ul>
+<p>They are saved with the story at every pause, and follow a character renamed everywhere.</p>
+<hr>
+<h2 id="3-writing-a-chapter">3. Writing a chapter</h2>
+<h3 id="the-table-of-contents">The table of contents</h3>
+<p>At the top of the left panel, each chapter shows its number, its title and <strong>its word count</strong>.</p>
+<ul>
+<li><strong>+</strong> adds a chapter at the end.</li>
+<li><strong>Drag and drop</strong> a chapter (by the handle that shows on hover) to reorder.</li>
+<li>The <strong>bin</strong> on hover deletes the chapter.</li>
+<li><strong>Import chapters…</strong> adds those of a <code>.txt</code> or <code>.md</code> file, cut at its headings (&quot;Chapitre 3&quot;, &quot;CHAPTER
+ONE&quot;, &quot;IV.&quot;, Markdown <code>#</code> headings…).</li>
+<li>The two buttons of the header open <a href="#presence-and-relations">Presence</a> (the grid) and
+<a href="#who-speaks">Who speaks?</a> (the speech bubble).</li>
+</ul>
+<h3 id="the-chapter-plan">The chapter plan</h3>
+<p>Above the text, the <strong>chapter plan</strong> (it folds) holds:</p>
+<ul>
+<li><strong>What this chapter will contain</strong>: the scenes, what must happen, what the reader must learn.</li>
+<li><strong>Notes</strong>: notes with a title used as their summary.</li>
+</ul>
+<h3 id="the-editor">The editor</h3>
+<p>The text is written on a sheet, <strong>saved automatically</strong> at every pause (Cmd/Ctrl+S saves at once). Under the
+page, a discreet <strong>status line</strong> gives the words of the chapter, the reading time, the number of printed pages
+(about 250 words a page) and, during a selection, its words. It also recalls the shortcut of the help: <strong>⌘/</strong>
+(Ctrl+/ on Windows and Linux).</p>
+<p>A click in the margin of the sheet puts the cursor on the line clicked: at the start of the line in the left
+margin, at its end in the right one.</p>
+<p>The tools of the chapter, beside its title:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>History</strong></td>
+<td>The versions of the chapter, see <a href="#12-history">History</a></td>
+</tr>
+<tr>
+<td><strong>Read</strong></td>
+<td>Reading mode, see <a href="#reading-mode">Reading mode</a></td>
+</tr>
+<tr>
+<td><strong>Proofread</strong></td>
+<td>Proofreading mode (the number of issues in a badge), see <a href="#proofreading-mode">Proofreading</a></td>
+</tr>
+<tr>
+<td><strong>Listen</strong></td>
+<td>Reading aloud, see <a href="#listening-to-the-text">Listen</a></td>
+</tr>
+<tr>
+<td>👤</td>
+<td>A voice per character when listening (on or off)</td>
+</tr>
+<tr>
+<td><strong>Style</strong></td>
+<td>The style lens, see <a href="#the-style-lens">Style lens</a></td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Focus mode, see <a href="#focus-mode">Focus mode</a></td>
+</tr>
+</tbody></table>
+<h3 id="splitting-a-chapter">Splitting a chapter</h3>
+<p>Put the cursor where the new chapter must start, then <strong>Paragraph › Split the chapter here</strong>: the text that
+follows becomes a new chapter, right after, which opens. Each keeps the split in its history.</p>
+<hr>
+<h2 id="4-formatting">4. Formatting</h2>
+<p>The formatting bar sits above the page, discreet until hovered. A <strong>bubble</strong> also shows over a selection
+(bold, italic, note in the margin, clear the formatting…), and the usual shortcuts work: Cmd/Ctrl+B, I, U,
+Cmd/Ctrl+Shift+L, E, R, J to align.</p>
+<p>From left to right: the font, the size, bold, italic, underline, strikethrough, the four alignments, decrease
+and increase indent, the line height, then <strong>Paragraph</strong>, <strong>Layout</strong> and <strong>Ω</strong> (special characters).</p>
+<h3 id="fonts">Fonts</h3>
+<p><img src="images/en/font-picker.jpg" alt="The font picker" loading="lazy"></p>
+<p>Each font is drawn in itself, with a word on what it is for, and a search at the top of the list. Twenty
+fonts are shipped with Storoff, grouped by family:</p>
+<ul>
+<li><strong>Book</strong>: EB Garamond, Libre Caslon, Libre Baskerville, Crimson Pro, Cormorant Garamond, Vollkorn,
+Literata, Lora, Spectral, Alegreya, Gentium;</li>
+<li><strong>Screen and legibility</strong>: iA Writer Quattro and Duo, Atkinson Hyperlegible, OpenDyslexic;</li>
+<li><strong>Typewriter</strong>: Courier Prime, Special Elite, iA Writer Mono;</li>
+<li><strong>Character</strong>: Playfair Display, Caveat;</li>
+<li>then the usual system fonts.</li>
+</ul>
+<p><strong>Show the fonts of this computer</strong> adds every installed one. <strong>Add a font (.ttf, .otf, .woff)…</strong> imports your
+own files, listed under &quot;My fonts&quot; and available in every story (and in the PDF of the book); × removes one.</p>
+<h3 id="paragraph">Paragraph</h3>
+<p><img src="images/en/paragraph.jpg" alt="The Paragraph popover" loading="lazy"></p>
+<ul>
+<li><strong>Style</strong>: Normal (the manuscript&#39;s), Quotation, Letter, Verse, Centred, Epigraph; each style sets indents,
+spacing and alignment at once.</li>
+<li><strong>Space before / after</strong>, <strong>first-line indent</strong>, <strong>left and right indents</strong>.</li>
+<li><strong>Insert a scene break (* * *)</strong>: a line holding only <code>* * *</code>, <code>#</code>, <code>⁂</code> or <code>~</code> is a scene break, centred
+and spaced; the book prints it as an ornament.</li>
+<li><strong>Split the chapter here</strong>, see above.</li>
+</ul>
+<p>The settings apply to the selected paragraphs (⌘A for the whole chapter). The popover stays open while the
+values change, to compare before and after.</p>
+<h3 id="layout">Layout</h3>
+<p><img src="images/en/layout-manuscript.jpg" alt="Layout: the manuscript" loading="lazy"></p>
+<p>The <strong>Manuscript</strong> tab sets the style of the whole story at once: font, size, line height, space between
+paragraphs, first-line indent, justified text. Ready-made <strong>presets</strong>: Screen (the default), Novel,
+Submission manuscript, Typewriter, Comfortable reading, High legibility, Dyslexia, Notebook. A passage
+formatted by hand keeps its own formatting. The RTF export uses this style.</p>
+<p>The <strong>Typography</strong> section turns automatic typography on or off (see below) and can <strong>fix the typography of
+the chapter</strong> in one step (⌘Z to undo).</p>
+<p><img src="images/en/layout-page.jpg" alt="Layout: the page" loading="lazy"></p>
+<p>The <strong>Page</strong> tab sets the sheet on screen: the <strong>paper</strong> (the theme&#39;s, Ivory, Parchment, Sage, Soft grey,
+Night, Ink), the <strong>width of the sheet</strong> (narrow, A4, wide, full width), the <strong>text zoom</strong> (80 to 150 %) and the
+<strong>margins of the chapter</strong>. These choices are for the screen: the book and the exports keep their own paper.</p>
+<h3 id="special-characters">Special characters</h3>
+<p><img src="images/en/special-characters.jpg" alt="The palette of special characters" loading="lazy"></p>
+<p><strong>Ω</strong> opens a palette by family: accented capitals (É À Ç Œ…), letters (œ æ ß ñ…), punctuation
+(« » “ ” — … ¿ ¡), symbols (° § № €…) and ornaments (⁂ ❧ ✦…). A click inserts the character at the cursor.</p>
+<h3 id="automatic-typography">Automatic typography</h3>
+<p>While typing, in French: « guillemets » with their non-breaking spaces, the narrow non-breaking space before
+; ! ?, the non-breaking space before :, the typographic apostrophe ’. In English, curly quotes. In every
+language: a hyphen at the start of a line becomes a <strong>dialogue dash</strong> (—), <code>--</code> gives an em dash too, <code>...</code> an
+ellipsis (…). <strong>Backspace</strong> right after gives back what was typed.</p>
+<hr>
+<h2 id="5-the-names-of-the-story">5. The names of the story</h2>
+<p>Storoff knows the names of your sheets: characters, places, events, dictionary words, with their other names.</p>
+<h3 id="autocompletion">Autocompletion</h3>
+<p><img src="images/en/autocomplete.jpg" alt="Autocompletion of names" loading="lazy"></p>
+<p>From the first letters of a name, a suggestion offers to complete it (Enter or Tab).</p>
+<h3 id="anchors-to-the-sheets">Anchors to the sheets</h3>
+<p>Recognised names are underlined with a discreet dotted line: <strong>Cmd/Ctrl+click</strong> opens their sheet in the side
+panel. Places and dictionary words are also recognised in lowercase (&quot;la cantine&quot;); first names are not (&quot;une
+rose&quot; is not &quot;Rose&quot;).</p>
+<p>A character with a compound name (&quot;Aeline Du Baronin&quot;) is also recognised by their first name alone and by
+their family name, with or without its particle, as long as no other sheet bears it. A word of a name is
+never a spelling mistake (&quot;Les Baronin sont ignobles&quot;).</p>
+<h3 id="creating-a-sheet-from-the-text">Creating a sheet from the text</h3>
+<p>A <strong>right click</strong> on a word (or a selection) offers to <strong>create the character</strong> or <strong>the place</strong> without
+leaving the text. The sheet carries a &quot;to complete&quot; badge until you mark it as completed.</p>
+<h3 id="renaming-everywhere">Renaming everywhere</h3>
+<p>When the new name of a character or a place is settled on its sheet, it replaces the old one <strong>in the whole
+story</strong>: the text of the chapters (dialogue included), their titles, plans and notes, the other sheets, and
+the summary and notes of the story. Whole words only, with the case of each occurrence (AELINE → ILONA) and
+the French elisions corrected (&quot;d&#39;Aeline&quot; → &quot;de Brann&quot;). A notice says where the name changed, and <strong>Undo in
+the text</strong> gives the texts back.</p>
+<hr>
+<h2 id="6-correcting">6. Correcting</h2>
+<h3 id="the-spell-checker">The spell checker</h3>
+<p>Mistakes are underlined in red while typing. The language is chosen in the header; French is shipped, other
+languages are added in the <a href="#14-settings-and-files">settings</a>.</p>
+<p><img src="images/en/word-menu.jpg" alt="The right-click menu" loading="lazy"></p>
+<p>A <strong>right click</strong> on an underlined word gathers everything in one place: the suggested corrections, <strong>add to
+the story dictionary</strong> (with a definition; its agreements and conjugations are then recognised), <strong>ignore</strong>,
+the grammar issue if any, and the sheet to create.</p>
+<h3 id="the-grammar-checker">The grammar checker</h3>
+<p>Optional, it is installed from the settings (desktop app): <strong>LanguageTool</strong>, which runs on your computer (the
+text never leaves Storoff), underlines in blue agreements, missing words, punctuation… The last word of a
+sentence being written is not underlined.</p>
+<p>Dialogue dashes typed as hyphens are underlined, with &quot;Replace the dialogue hyphens of the chapter&quot;.</p>
+<h3 id="proofreading-mode">Proofreading mode</h3>
+<p><img src="images/en/proofreading.jpg" alt="Proofreading mode" loading="lazy"></p>
+<p><strong>Proofread</strong> (or <strong>F7</strong>) goes through every issue of the chapter, one by one: the card shows the word, the
+corrections in one click, ignore, ignore everywhere, add to the dictionary. <strong>F8</strong> and <strong>Shift+F8</strong> go to the
+next or previous issue.</p>
+<hr>
+<h2 id="7-reading-over-and-reworking">7. Reading over and reworking</h2>
+<h3 id="find-and-replace">Find and replace</h3>
+<p><img src="images/en/find.jpg" alt="The find bar" loading="lazy"></p>
+<p><strong>Cmd/Ctrl+F</strong> opens a bar above the page, with the selected text as the search. Accents are ignored (&quot;ete&quot;
+finds &quot;Été&quot;); case (<strong>Aa</strong>) and whole words (<strong>ab</strong>) on request. Every match is highlighted, &quot;1 of 2&quot;, Enter
+and Shift+Enter go through them.</p>
+<ul>
+<li><strong>Replace</strong> replaces the current match and goes to the next.</li>
+<li><strong>The whole chapter</strong> replaces in one step (⌘Z undoes it).</li>
+<li><strong>In the whole story (3)</strong> replaces in every chapter (each keeps the former version in its history).</li>
+</ul>
+<p>The replacement takes the case of what it replaces (&quot;Été&quot; → &quot;Hiver&quot;).</p>
+<h3 id="notes-in-the-margin">Notes in the margin</h3>
+<p><img src="images/en/margin-note.jpg" alt="A note in the margin" loading="lazy"></p>
+<p>Select a passage, then <strong>✎ Note</strong> in the bubble: the passage is softly highlighted, a numbered marker stands in
+the right margin at its line and the card of the note opens for typing. A click on the passage or the marker
+opens it again; <strong>Resolve</strong> removes the note and keeps the passage. Notes stay out of the exports, and
+<a href="#to-check">To check</a> gathers the ones still open.</p>
+<h3 id="reading-mode">Reading mode</h3>
+<p><img src="images/en/reading.jpg" alt="Reading mode" loading="lazy"></p>
+<p><strong>Read</strong> takes away the formatting bar and the underlining of names: the text reads like a page of a book
+(holding Cmd/Ctrl brings the anchors back). <strong>Write</strong> goes back to writing.</p>
+<h3 id="the-style-lens">The style lens</h3>
+<p><img src="images/en/style-lens.jpg" alt="The style lens" loading="lazy"></p>
+<p><strong>Style</strong> (or <strong>F9</strong>) opens a panel beside the page, for the chapter or the whole book:</p>
+<ul>
+<li>the figures: words, reading time, average sentence length, share of dialogue, adverbs, readability;</li>
+<li>the <strong>sentence rhythm</strong> in bars (long ones in orange);</li>
+<li><strong>close repetitions</strong>, underlined with orange dots in the text;</li>
+<li><strong>phrasings to watch</strong> (there was, began to, suddenly, as if…);</li>
+<li><strong>words that come back</strong> and repeated expressions;</li>
+<li><strong>names to check</strong> (a word one letter away from a name of the story).</li>
+</ul>
+<p>A click on a word or an expression highlights it everywhere in the text.</p>
+<h3 id="listening-to-the-text">Listening to the text</h3>
+<p><strong>Listen</strong> reads the chapter aloud with a voice of the computer, sentence after sentence from the cursor; the
+sentence being read is selected. With the 👤 icon on, <strong>each character has their own voice</strong>: the narration
+keeps the usual voice, the lines take the other voices of the computer (higher for &quot;dit-elle&quot;, lower for
+&quot;dit-il&quot;).</p>
+<hr>
+<h2 id="8-writing-comfort">8. Writing comfort</h2>
+<h3 id="focus-mode">Focus mode</h3>
+<p><img src="images/en/focus.jpg" alt="Focus mode" loading="lazy"></p>
+<p><strong>Focus</strong> (or <strong>Cmd/Ctrl+Shift+F</strong>) goes full screen: only the page remains, the other paragraphs fade and the
+current line stays centred. <strong>Focus: paragraph / sentence</strong> chooses what stays bright; by sentence, only the
+sentence being written stays sharp. <strong>Esc</strong> or <strong>Exit focus</strong> leaves it.</p>
+<h3 id="daily-goal-and-sprints">Daily goal and sprints</h3>
+<p><img src="images/en/sprint-menu.jpg" alt="The menu of the daily goal" loading="lazy"></p>
+<p>The ring of the header fills toward your <strong>daily goal</strong> (the words written today; deleting does not move the
+count back). Its menu shows:</p>
+<ul>
+<li>the <strong>calendar</strong> of the last twelve weeks, a square per day, brighter as the day nears the goal, and the
+<strong>days in a row</strong>;</li>
+<li>the <strong>daily goal</strong> in words;</li>
+<li><strong>writing sprints</strong> of 15, 25 or 45 minutes (time left and words written in the header);</li>
+<li><strong>Without going back</strong>: during the sprint, nothing is deleted. Backspace <strong>crosses out</strong> instead of
+erasing, as on paper; at the end, you delete the crossings out or keep them;</li>
+<li>the <strong>note for next time</strong>, the same as on the &quot;Take up&quot; card.</li>
+</ul>
+<h3 id="ambience-and-typewriter">Ambience and typewriter</h3>
+<p><img src="images/en/ambience.jpg" alt="The ambience menu" loading="lazy"></p>
+<p>The ambience menu plays <strong>rain</strong>, <strong>wind</strong>, a <strong>wood fire</strong>, the <strong>seaside</strong> or a <strong>summer night</strong>, made on the
+fly (nothing to download), with a volume. <strong>Typewriter ⌨</strong> makes each key typed in the manuscript strike like a
+real typewriter, with the bell at the end of a line. The sound follows the writer from a chapter to a sheet
+and stops when the story closes.</p>
+<h3 id="keyboard-shortcuts">Keyboard shortcuts</h3>
+<p><img src="images/en/shortcuts.jpg" alt="The list of shortcuts" loading="lazy"></p>
+<p><strong>Cmd/Ctrl+/</strong> opens the list of every shortcut, by family. See also
+<a href="#15-keyboard-shortcuts">Keyboard shortcuts</a>.</p>
+<hr>
+<h2 id="9-sheets">9. Sheets</h2>
+<p><img src="images/en/sheet.jpg" alt="A character sheet" loading="lazy"></p>
+<p>Four kinds of sheets, each in its section of the left panel:</p>
+<ul>
+<li><strong>Characters</strong>: fields (role, age, appearance, personality, motivation…), each in its own box; they can be
+added, renamed and removed.</li>
+<li><strong>Places</strong>: a description, and possibly <a href="#11-maps">a map</a>.</li>
+<li><strong>Events</strong>: a title, a free &quot;When&quot; (&quot;year 302&quot;, &quot;12 mars 1890&quot;, &quot;day 3&quot;…), a description.</li>
+<li><strong>Dictionary</strong>: the invented words of the story, see below.</li>
+</ul>
+<p>On every sheet:</p>
+<ul>
+<li><strong>Other names</strong>: nicknames and titles (&quot;Ael&#39;&quot;), recognised in the text; for a character, with the characters
+who use them.</li>
+<li><strong>Interview</strong> (characters and places): <strong>Ask a question</strong> draws a question among those not answered yet
+(&quot;What smell takes you back to childhood?&quot;); <strong>Keep the answer</strong> turns it into a note.</li>
+<li><strong>Notes</strong>: notes with a title.</li>
+<li><strong>Links</strong>: &quot;ami de&quot; [Aeline], with the name of the link seen from the other side (&quot;amie de&quot;). A link shows
+and can be edited on both sheets; two sheets share one link at most.</li>
+<li><strong>Appears in</strong>: the chapters that mention the sheet, computed automatically; a click opens the chapter.</li>
+<li>The <strong>die</strong> beside the name (characters and places) offers eight names in the style of the story.</li>
+<li><strong>History</strong> and <strong>Delete</strong> at the top right. Deleting a place that holds others (the territories of a
+world, the buildings of a territory…) offers to delete them too.</li>
+</ul>
+<h3 id="the-story-dictionary">The story dictionary</h3>
+<p><img src="images/en/glossary.jpg" alt="A dictionary word" loading="lazy"></p>
+<p>A dictionary word has a <strong>word class</strong> (noun, adjective, verb in -er, in -ir, invariable) and a
+<strong>definition</strong>. Storoff derives the <strong>forms recognized in the text</strong> (here &quot;Barelin, Barelins&quot;): the plural,
+the feminine, the conjugations are no longer mistakes. <strong>Other forms</strong> can be added by hand.</p>
+<hr>
+<h2 id="10-overviews">10. Overviews</h2>
+<h3 id="who-speaks">Who speaks?</h3>
+<p><img src="images/en/voices.jpg" alt="Who speaks?" loading="lazy"></p>
+<p>The speech bubble of the table of contents sorts <strong>every line of dialogue of the book by character</strong>, to read
+each voice one line after the other. The speaker is found in the tag (&quot;demanda Aeline&quot;), around the line, or
+guessed from the turns of the conversation and the character the passage before was about; a guessed line has
+a dashed edge.</p>
+<ul>
+<li>For each one: number of lines, words per line, share of questions and exclamations, their expressions and
+the words that are theirs.</li>
+<li><strong>Told in the first person by</strong>: in a story told as &quot;I&quot;, the narrator is guessed (the &quot;répondis-je&quot; lines go
+to them); confirm it or choose another one.</li>
+<li><strong>Unclear speaker</strong> gathers the lines nobody can tell who says: a tag to add.</li>
+</ul>
+<p>A click on a line opens its chapter, the line highlighted.</p>
+<h3 id="presence-and-relations">Presence and relations</h3>
+<p><img src="images/en/presence.jpg" alt="Presence" loading="lazy"></p>
+<p>The grid of the table of contents crosses the characters (or the places) with the chapters: a darker cell
+means more mentions; an orange badge flags a long absence. A click on a cell opens the chapter. <strong>Relations</strong>
+lays the sheets out as a graph: links written on the sheets in gold, chapters shared in grey.</p>
+<h3 id="map-of-links">Map of links</h3>
+<p><img src="images/en/links-map.jpg" alt="The map of links" loading="lazy"></p>
+<p>The button beside the <strong>+</strong> of the characters or the places opens the map of links: each link written on its
+line in both directions, an arrow toward the sheet it names.</p>
+<ul>
+<li>Drag a sheet to place it; it stays where you drop it. <strong>Put a sheet…</strong> adds one.</li>
+<li><strong>Connect</strong>: drag from one sheet to another to create a link.</li>
+<li><strong>Family tree</strong> sorts the generations from the family links.</li>
+<li>The <strong>Characters, Places, Events</strong> filters choose the sheets shown.</li>
+</ul>
+<h3 id="timeline">Timeline</h3>
+<p><img src="images/en/timeline.jpg" alt="The timeline" loading="lazy"></p>
+<p>The button beside the <strong>+</strong> of the events opens the timeline: the events in the order they happen, read from
+their &quot;When&quot;, with &quot;13 years later&quot; between them, the characters and places linked, and the chapter that tells
+it. <strong>As it is told</strong> shows them in the order of the book (flashbacks are flagged).</p>
+<ul>
+<li>With a <strong>Birth</strong> field, each character has their age at each event; a character linked to an event before
+their birth or after their death is flagged.</li>
+<li><strong>Follow</strong> a single character.</li>
+<li><strong>Calendar</strong>: the real calendar (with the real phase of the Moon 🌗) or an invented one, with its months and
+its moons.</li>
+</ul>
+<h3 id="to-check">To check</h3>
+<p><img src="images/en/checks.jpg" alt="To check" loading="lazy"></p>
+<p><strong>To check</strong>, in the header, gathers what the tools noticed, inconsistencies first: open notes in the margin,
+a character linked to an event after their death, a word that looks like a misspelled name, a character
+missing for a long time, a sheet to complete, a line without a clear speaker, an unreadable date, a link
+without a name, an empty chapter. <strong>Show</strong> leads to the place to fix.</p>
+<hr>
+<h2 id="11-maps">11. Maps</h2>
+<p>A place can become a map: on its sheet, <strong>Create a map…</strong>, then the kind, which is final:</p>
+<ul>
+<li><strong>World</strong>: a planet, as a 3D globe or a world map;</li>
+<li><strong>Territory</strong>: a city, a forest, an island… in 3D or seen from above, set on a world;</li>
+<li><strong>Building</strong>: in 3D or seen from above, set on a territory.</li>
+</ul>
+<h3 id="the-world">The world</h3>
+<p><img src="images/en/map.jpg" alt="A world in 3D" loading="lazy"></p>
+<p>A new planet is an ocean. <strong>Generate the planet</strong> makes continents, relief and rivers from the settings
+(oceans, continents, relief, rivers, seed); <strong>Reset the world…</strong> flattens it again, keeping what you choose.
+The tools, at the top left:</p>
+<ul>
+<li><strong>Navigate</strong> (H); <strong>Raise</strong>, <strong>Lower</strong>, <strong>Flatten</strong>, <strong>Smooth</strong> the terrain with a brush;</li>
+<li><strong>Paint a biome</strong> (forest, desert, tundra…) or give back the <strong>automatic biome</strong>;</li>
+<li>draw a <strong>river</strong>, a <strong>road</strong>, a <strong>border</strong>, a <strong>region</strong> (a nation, a province);</li>
+<li>put a <strong>place</strong> or a <strong>territory</strong>, write a <strong>name on the map</strong> (a place to complete is created);</li>
+<li><strong>Measure a distance</strong>, with the travel times on foot, on horseback and by ship;</li>
+<li>undo and redo (Cmd/Ctrl+Z, Cmd/Ctrl+Shift+Z).</li>
+</ul>
+<p>The <strong>places on this map</strong> are listed on the right; <strong>Go to</strong> brings the view there.</p>
+<p><img src="images/en/map-2d.jpg" alt="A world as a world map" loading="lazy"></p>
+<p><strong>2D</strong> shows the world as a world map, or <strong>framed</strong> on a region. The print button prints the map.</p>
+<h3 id="territories-and-buildings">Territories and buildings</h3>
+<p>A territory is drawn from above or in 3D: <strong>paint the ground</strong> (grass, pavement, water, sand…), <strong>draw roads</strong>
+(bends and crossings place themselves), draw <strong>districts</strong>, sketch <strong>volumes</strong>, <strong>place 3D models</strong>. A building
+is built floor by floor: <strong>rooms</strong> (each becomes a place to complete), <strong>doors</strong>, <strong>windows</strong>, <strong>openings</strong>,
+furniture, with a <strong>cutaway view</strong> (C).</p>
+<p>The <strong>library</strong> imports free model kits (CC0 licence) as they are, as <code>.zip</code> files.</p>
+<hr>
+<h2 id="12-history">12. History</h2>
+<p><img src="images/en/history.jpg" alt="The history of a chapter" loading="lazy"></p>
+<p>Every chapter and every sheet has its own history: <strong>History</strong> opens it in the side panel, each version with
+its date and what changed (&quot;Text +909 characters · Changed: title, plan&quot;). <strong>Undo the last change</strong> or
+<strong>Restore this version</strong> destroys nothing: the current state stays in the history. Cmd/Ctrl+S records a version
+at once.</p>
+<hr>
+<h2 id="13-the-book-and-the-exports">13. The book and the exports</h2>
+<h3 id="the-book">The book</h3>
+<p><img src="images/en/book.jpg" alt="The laid-out book" loading="lazy"></p>
+<p><strong>Export › See the book</strong> lays the manuscript out as a printed book, on a double page: <strong>pocket</strong> (11 × 17.8
+cm), <strong>A5</strong> or <strong>large</strong> format, in the font of the manuscript, justified with hyphenation. A title page opens
+the book; each chapter starts on a new page with its number, its title and a <strong>drop cap</strong> (it can be turned
+off); scene breaks become an ornament; running heads and page numbers. The arrows, Page Up/Down, Home and End
+turn the pages. <strong>Print / PDF</strong> prints the book or saves it as PDF, fonts included.</p>
+<h3 id="the-exports">The exports</h3>
+<p><img src="images/en/export-menu.jpg" alt="The Export menu" loading="lazy"></p>
+<ul>
+<li><strong>RTF</strong>: for WordPad, Word or LibreOffice, with all the formatting and the style of the manuscript.</li>
+<li><strong>Plain text</strong> (.txt).</li>
+<li><strong>E-book</strong> (.epub): an EPUB 3 with its table of contents.</li>
+<li><strong>Whole story</strong> (.storoff): everything (chapters, sheets, maps), to reopen with &quot;Import a story…&quot;; the
+history is not included.</li>
+</ul>
+<hr>
+<h2 id="14-settings-and-files">14. Settings and files</h2>
+<p><img src="images/en/settings.jpg" alt="The settings" loading="lazy"></p>
+<ul>
+<li><strong>Interface language</strong>: French or English, applied at once.</li>
+<li><strong>Stories</strong>: the folder where they are kept (desktop app), which you can change and open.</li>
+<li><strong>Spell checker</strong>: add a language by importing a Hunspell dictionary (the <code>.aff</code> and <code>.dic</code> files together;
+LibreOffice&#39;s work).</li>
+<li><strong>Grammar checker</strong>: install LanguageTool, which runs on your computer.</li>
+</ul>
+<p><strong>Where are the stories?</strong> In <code>Documents/Storoff/</code> by default. Each story is a folder of readable JSON files:
+<code>story.json</code>, a sub-folder per kind of sheet, and <code>.history/</code> for the history. Nothing is sent over the
+internet.</p>
+<p>The browser version (for development) keeps the stories in memory for the session.</p>
+<hr>
+<h2 id="15-keyboard-shortcuts">15. Keyboard shortcuts</h2>
+<p>⌘ on a Mac, Ctrl on Windows and Linux.</p>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⌘B · ⌘I · ⌘U</td>
+<td>Bold, italic, underline</td>
+</tr>
+<tr>
+<td>⌘⇧S</td>
+<td>Strikethrough</td>
+</tr>
+<tr>
+<td>⌘⇧L · E · R · J</td>
+<td>Align left, centre, right, justify</td>
+</tr>
+<tr>
+<td>⌘Z · ⌘⇧Z</td>
+<td>Undo, redo</td>
+</tr>
+<tr>
+<td>Tab · ⇧Tab</td>
+<td>Insert a tab, remove it</td>
+</tr>
+<tr>
+<td><code>-</code> then space · <code>--</code></td>
+<td>Dialogue dash (start of a line), em dash</td>
+</tr>
+<tr>
+<td>⌫ right after a fix</td>
+<td>Undo the typographic fix</td>
+</tr>
+<tr>
+<td>⌘ click on a name</td>
+<td>Open its sheet</td>
+</tr>
+<tr>
+<td>Right click</td>
+<td>Corrections, dictionary, sheet to create</td>
+</tr>
+<tr>
+<td>⌘F · Enter · ⇧Enter · Esc</td>
+<td>Find, next match, previous, close</td>
+</tr>
+<tr>
+<td>⌘⇧F · Esc</td>
+<td>Focus mode, leave it</td>
+</tr>
+<tr>
+<td>F7 · F8 · ⇧F8</td>
+<td>Proofreading mode, next issue, previous</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>Style lens</td>
+</tr>
+<tr>
+<td>⌘S</td>
+<td>Save now</td>
+</tr>
+<tr>
+<td>⌘/</td>
+<td>The list of shortcuts</td>
+</tr>
+<tr>
+<td>← → · Page Up/Down · Home · End</td>
+<td>Turn the pages of the book</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>

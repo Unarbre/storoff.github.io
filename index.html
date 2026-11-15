@@ -40,6 +40,9 @@
     code { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.05rem 0.3rem; }
     pre.notes { white-space: pre-wrap; background: var(--surface); border: 1px solid var(--border);
                 border-radius: 8px; padding: 1rem; font-family: inherit; }
+    .preview img { display: block; width: 100%; height: auto; margin: 0.75rem 0; border: 1px solid var(--border);
+                   border-radius: 10px; box-shadow: 0 6px 24px rgb(0 0 0 / 12%); }
+    .preview:hover img { border-color: var(--accent); }
     footer { margin-top: 3rem; color: var(--muted); font-size: 0.85rem; }
     a { color: var(--accent); }
   </style>
@@ -48,26 +51,31 @@
   <main>
     <h1>Storoff</h1>
     <p class="tagline">L'atelier d'écriture de fiction : manuscrit, personnages, lieux, événements et dictionnaire de l'histoire.</p>
-    <span class="version">Version 1.0.0 · 12 novembre 2026</span>
+    <span class="version">Version 1.1.0 · 15 novembre 2026</span>
 
     <div class="downloads">
-      <a class="download" data-os="windows" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.0.0/Storoff-Setup-1.0.0.exe">
+      <a class="download" data-os="windows" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.1.0/Storoff-Setup-1.1.0.exe">
         <div><strong>Windows</strong><span>Installeur 64 bits (.exe)</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
-      <a class="download" data-os="mac-arm" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.0.0/Storoff-1.0.0-arm64.dmg">
+      <a class="download" data-os="mac-arm" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.1.0/Storoff-1.1.0-arm64.dmg">
         <div><strong>macOS — Apple Silicon</strong><span>Puces M1, M2, M3, M4… (.dmg)</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
-      <a class="download" data-os="mac-intel" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.0.0/Storoff-1.0.0-x64.dmg">
+      <a class="download" data-os="mac-intel" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.1.0/Storoff-1.1.0-x64.dmg">
         <div><strong>macOS — Intel</strong><span>Mac Intel (.dmg)</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
-      <a class="download" data-os="linux" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.0.0/Storoff-1.0.0.AppImage">
+      <a class="download" data-os="linux" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.1.0/Storoff-1.1.0.AppImage">
         <div><strong>Linux</strong><span>AppImage 64 bits, sans installation</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
     </div>
+
+    <h2>Découvrir Storoff</h2>
+    <a class="preview" href="guide/"><img src="guide/images/fr/chapter.jpg" alt="Un chapitre ouvert dans Storoff" loading="lazy"></a>
+    <p>Le <a href="guide/">guide d'utilisation</a> fait le tour de l'application, écran par écran.
+    <span lang="en">The <a href="guide/en.html">user guide</a> is also in English.</span></p>
 
     <h2>Installation</h2>
     <details>
@@ -84,7 +92,7 @@
     <details>
       <summary>Linux</summary>
       <p>Rendez le fichier exécutable puis lancez-le :
-      <code>chmod +x Storoff-1.0.0.AppImage &amp;&amp; ./Storoff-1.0.0.AppImage</code></p>
+      <code>chmod +x Storoff-1.1.0.AppImage &amp;&amp; ./Storoff-1.1.0.AppImage</code></p>
     </details>
     <details>
       <summary>Où sont mes histoires ?</summary>
@@ -92,7 +100,8 @@
     </details>
 
     <footer>
-      <a href="https://github.com/Unarbre/storoff.github.io/releases">Toutes les versions</a>
+      <a href="https://github.com/Unarbre/storoff.github.io/releases">Toutes les versions</a> ·
+      <a href="guide/">Guide d'utilisation</a> · <a href="guide/en.html" lang="en">User guide</a>
     </footer>
   </main>
   <script>

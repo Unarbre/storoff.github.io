@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guide de Storoff</title>
+  <style>
+    :root {
+      --bg: #fbfaf7; --surface: #ffffff; --text: #24221f; --muted: #77736b;
+      --border: #e2ded6; --accent: #6b4f2a;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1c1b19; --surface: #252421; --text: #ece8e1; --muted: #9b968c;
+              --border: #3a3833; --accent: #d8b07a; }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 4rem; }
+    body { margin: 0; background: var(--bg); color: var(--text);
+           font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; }
+    .bar { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center;
+           gap: 1rem; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .bar a { color: var(--text); text-decoration: none; }
+    .bar .home { font-family: Georgia, 'Times New Roman', serif; font-size: 1.15rem; font-weight: 600; }
+    .bar .download { padding: 0.3rem 0.8rem; border: 1px solid var(--border); border-radius: 999px;
+                     font-size: 0.9rem; }
+    .bar .download:hover { border-color: var(--accent); }
+    main { max-width: 52rem; margin: 0 auto; padding: 2.5rem 1rem 4rem; }
+    h1 { margin: 0 0 0.5rem; font-family: Georgia, 'Times New Roman', serif; font-size: 2.4rem; }
+    h2 { margin: 3rem 0 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+         font-family: Georgia, 'Times New Roman', serif; font-size: 1.6rem; }
+    h3 { margin: 2rem 0 0.5rem; font-size: 1.15rem; }
+    hr { display: none; }
+    a { color: var(--accent); }
+    img { display: block; max-width: 100%; height: auto; margin: 1.25rem 0; border: 1px solid var(--border);
+          border-radius: 10px; box-shadow: 0 6px 24px rgb(0 0 0 / 12%); }
+    code { padding: 0.05rem 0.3rem; border: 1px solid var(--border); border-radius: 4px; background: var(--surface);
+           font-size: 0.9em; }
+    table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; margin: 1rem 0;
+            font-size: 0.95rem; }
+    th, td { padding: 0.45rem 0.75rem; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+    th { background: var(--surface); }
+    li { margin: 0.2rem 0; }
+    footer { margin-top: 3rem; color: var(--muted); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+  <nav class="bar">
+    <a class="home" href="../">Storoff 1.1.0</a>
+    <a class="download" href="../">Télécharger Storoff</a>
+  </nav>
+  <main>
+<h1 id="guide-de-storoff">Guide de Storoff</h1>
+<p><a href="en.html">English version</a></p>
+<p>Storoff est un atelier d&#39;écriture de fiction qui fonctionne sur votre ordinateur, sans compte ni connexion :
+vos histoires sont des fichiers posés dans un dossier de votre disque. Ce guide fait le tour de tout ce que
+l&#39;application sait faire, écran par écran. Chaque capture vient de l&#39;histoire d&#39;exemple « Le Dernier Phare ».</p>
+<h2 id="sommaire">Sommaire</h2>
+<ol>
+<li><a href="#1-premiers-pas">Premiers pas</a></li>
+<li><a href="#2-lécran-dune-histoire">L&#39;écran d&#39;une histoire</a></li>
+<li><a href="#3-écrire-un-chapitre">Écrire un chapitre</a></li>
+<li><a href="#4-mettre-en-forme">Mettre en forme</a></li>
+<li><a href="#5-les-noms-de-lhistoire">Les noms de l&#39;histoire</a></li>
+<li><a href="#6-corriger">Corriger</a></li>
+<li><a href="#7-relire-et-retravailler">Relire et retravailler</a></li>
+<li><a href="#8-le-confort-décriture">Le confort d&#39;écriture</a></li>
+<li><a href="#9-les-fiches">Les fiches</a></li>
+<li><a href="#10-les-vues-densemble">Les vues d&#39;ensemble</a></li>
+<li><a href="#11-les-cartes">Les cartes</a></li>
+<li><a href="#12-lhistorique">L&#39;historique</a></li>
+<li><a href="#13-le-livre-et-les-exports">Le livre et les exports</a></li>
+<li><a href="#14-paramètres-et-fichiers">Paramètres et fichiers</a></li>
+<li><a href="#15-raccourcis-clavier">Raccourcis clavier</a></li>
+</ol>
+<hr>
+<h2 id="1-premiers-pas">1. Premiers pas</h2>
+<h3 id="mes-histoires">Mes histoires</h3>
+<p><img src="images/fr/stories.jpg" alt="La liste des histoires" loading="lazy"></p>
+<p>L&#39;écran d&#39;accueil liste vos histoires, la plus récemment modifiée en premier. Chaque histoire est
+indépendante : ses chapitres, ses fiches, ses cartes et son historique.</p>
+<ul>
+<li><strong>Créer</strong> : tapez un titre dans le champ du haut, puis Entrée ou « Créer ». L&#39;histoire s&#39;ouvre, prête pour
+son premier chapitre.</li>
+<li><strong>Renommer, dupliquer, supprimer</strong> : les boutons apparaissent au survol d&#39;une histoire. La suppression
+demande confirmation et emporte l&#39;historique.</li>
+<li><strong>Importer une histoire…</strong> : ouvre un fichier <code>.storoff</code> (une histoire complète exportée depuis Storoff,
+voir <a href="#les-exports">Exports</a>) et l&#39;ajoute comme nouvelle histoire.</li>
+<li><strong>Paramètres</strong> : la langue de l&#39;interface, le dossier des histoires, les dictionnaires (voir
+<a href="#14-paramètres-et-fichiers">Paramètres</a>).</li>
+</ul>
+<hr>
+<h2 id="2-lécran-dune-histoire">2. L&#39;écran d&#39;une histoire</h2>
+<p><img src="images/fr/chapter.jpg" alt="Un chapitre ouvert" loading="lazy"></p>
+<p>L&#39;écran se partage en trois zones.</p>
+<p><strong>L&#39;en-tête</strong>, de gauche à droite :</p>
+<ul>
+<li><strong>Mes histoires</strong> revient à la liste ; les flèches <strong>‹ ›</strong> reviennent à l&#39;écran précédent ou suivant.</li>
+<li>Le <strong>titre</strong> de l&#39;histoire, qui ramène à son <a href="#laccueil-de-lhistoire">accueil</a>.</li>
+<li>La <strong>langue du correcteur</strong> (ici « Français ») : un menu pour choisir le dictionnaire de l&#39;histoire.</li>
+<li><strong>L&#39;ambiance</strong> (l&#39;icône d&#39;onde sonore) : sons d&#39;ambiance et machine à écrire, voir
+<a href="#ambiance-et-machine-à-écrire">Ambiance</a>.</li>
+<li><strong>À vérifier</strong> : ce que les outils de Storoff ont repéré dans l&#39;histoire, voir <a href="#à-vérifier">À vérifier</a>.</li>
+<li><strong>Le compteur de mots du jour</strong> (l&#39;anneau) : objectif quotidien, calendrier et sprints, voir
+<a href="#objectif-du-jour-et-sprints">Objectif du jour</a>.</li>
+<li><strong>Exporter</strong> : le livre mis en page, RTF, texte, EPUB, histoire complète.</li>
+<li><strong>Les réglages</strong> (dernière icône) : les paramètres de l&#39;application.</li>
+</ul>
+<p><strong>Le panneau de gauche</strong> rassemble la table des matières et les fiches : personnages, lieux, événements,
+dictionnaire. Chaque section a son bouton <strong>+</strong> pour créer, et parfois un bouton de vue d&#39;ensemble (carte des
+liens, chronologie). Un clic droit sur une fiche propose de la supprimer.</p>
+<p><strong>La zone principale</strong> montre le chapitre ou la fiche ouverte. Une fiche ouverte depuis le texte s&#39;affiche
+dans un <strong>panneau latéral</strong>, à droite, sans quitter le chapitre ; tout y est modifiable.</p>
+<h3 id="laccueil-de-lhistoire">L&#39;accueil de l&#39;histoire</h3>
+<p><img src="images/fr/story-home.jpg" alt="L'accueil de l'histoire" loading="lazy"></p>
+<p>L&#39;accueil s&#39;affiche à l&#39;ouverture de l&#39;histoire, et chaque fois qu&#39;on clique sur son titre dans l&#39;en-tête.</p>
+<p><strong>Reprendre là où vous en étiez</strong> rappelle le chapitre écrit en dernier et la phrase où se trouvait le
+curseur. La <strong>note pour la prochaine fois</strong> garde l&#39;idée à ne pas perdre (« Brann doit révéler le secret de la
+lanterne ») ; elle s&#39;écrit sur la carte ou dans le menu de l&#39;objectif du jour. <strong>Reprendre ici</strong> rouvre le
+chapitre à cet endroit précis : le curseur revient dans la phrase, le passage est centré et brille un instant.
+Chaque chapitre se rouvre d&#39;ailleurs là où son curseur était resté.</p>
+<p><strong>L&#39;histoire</strong> rassemble ce qui vaut pour toute l&#39;histoire :</p>
+<ul>
+<li>le <strong>résumé</strong> : de quoi parle l&#39;histoire, le point de départ, les personnages, ce qui est en jeu, la fin ;
+les noms de l&#39;histoire y sont reconnus et le correcteur y passe ;</li>
+<li>les <strong>notes</strong> de l&#39;histoire : thèmes, idées, documentation… chacune avec un titre qui sert de résumé.</li>
+</ul>
+<p>Ils sont enregistrés avec l&#39;histoire à chaque pause, et suivent un personnage renommé partout.</p>
+<hr>
+<h2 id="3-écrire-un-chapitre">3. Écrire un chapitre</h2>
+<h3 id="la-table-des-matières">La table des matières</h3>
+<p>En haut du panneau de gauche, chaque chapitre affiche son numéro, son titre et <strong>son nombre de mots</strong>.</p>
+<ul>
+<li><strong>+</strong> ajoute un chapitre à la fin.</li>
+<li><strong>Glisser-déposer</strong> un chapitre (par la poignée qui apparaît au survol) change l&#39;ordre.</li>
+<li>La <strong>corbeille</strong> au survol supprime le chapitre.</li>
+<li><strong>Importer des chapitres…</strong> ajoute ceux d&#39;un fichier <code>.txt</code> ou <code>.md</code>, découpé à ses titres (« Chapitre 3 »,
+« CHAPTER ONE », « IV. », titres Markdown <code>#</code>…).</li>
+<li>Les deux boutons de l&#39;en-tête ouvrent <a href="#présences-et-relations">Présences</a> (la grille) et
+<a href="#qui-parle-">Qui parle ?</a> (la bulle).</li>
+</ul>
+<h3 id="le-plan-du-chapitre">Le plan du chapitre</h3>
+<p>Au-dessus du texte, le <strong>plan du chapitre</strong> (repliable) contient :</p>
+<ul>
+<li><strong>Ce que contiendra ce chapitre</strong> : les scènes, ce qui doit arriver, ce que le lecteur doit apprendre.</li>
+<li><strong>Notes</strong> : des notes avec un titre qui sert de résumé.</li>
+</ul>
+<h3 id="léditeur">L&#39;éditeur</h3>
+<p>Le texte s&#39;écrit sur une feuille, <strong>enregistrée automatiquement</strong> à chaque pause (Cmd/Ctrl+S enregistre tout de
+suite). Sous la page, une <strong>ligne d&#39;état</strong> discrète donne les mots du chapitre, le temps de lecture, le nombre
+de pages imprimées (environ 250 mots par page) et, pendant une sélection, ses mots. Elle rappelle aussi le
+raccourci de l&#39;aide : <strong>⌘/</strong> (Ctrl+/ sur Windows et Linux).</p>
+<p>Un clic dans la marge de la feuille place le curseur sur la ligne cliquée : au début de la ligne dans la marge
+gauche, à la fin dans la marge droite.</p>
+<p>Les outils du chapitre, à côté de son titre :</p>
+<table>
+<thead>
+<tr>
+<th>Outil</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Historique</strong></td>
+<td>Les versions du chapitre, voir <a href="#12-lhistorique">Historique</a></td>
+</tr>
+<tr>
+<td><strong>Lire</strong></td>
+<td>Le mode lecture, voir <a href="#mode-lecture">Mode lecture</a></td>
+</tr>
+<tr>
+<td><strong>Corriger</strong></td>
+<td>Le mode correction (le nombre d&#39;erreurs en pastille), voir <a href="#le-mode-correction">Corriger</a></td>
+</tr>
+<tr>
+<td><strong>Écouter</strong></td>
+<td>La lecture à voix haute, voir <a href="#écouter-le-texte">Écouter</a></td>
+</tr>
+<tr>
+<td>👤</td>
+<td>Une voix par personnage pendant la lecture à voix haute (activée ou non)</td>
+</tr>
+<tr>
+<td><strong>Style</strong></td>
+<td>La loupe du style, voir <a href="#la-loupe-du-style">Loupe du style</a></td>
+</tr>
+<tr>
+<td><strong>Focus</strong></td>
+<td>Le mode focus, voir <a href="#mode-focus">Mode focus</a></td>
+</tr>
+</tbody></table>
+<h3 id="couper-un-chapitre">Couper un chapitre</h3>
+<p>Placez le curseur là où le nouveau chapitre doit commencer, puis <strong>Paragraphe › Couper le chapitre ici</strong> : le
+texte qui suit devient un nouveau chapitre, juste après, qui s&#39;ouvre. Chacun garde la trace de la coupe dans
+son historique.</p>
+<hr>
+<h2 id="4-mettre-en-forme">4. Mettre en forme</h2>
+<p>La barre de mise en forme se tient au-dessus de la page, discrète tant qu&#39;on ne la survole pas. Une <strong>bulle</strong>
+apparaît aussi au-dessus d&#39;une sélection (gras, italique, note en marge, effacer la mise en forme…), et les
+raccourcis habituels fonctionnent : Cmd/Ctrl+B, I, U, Cmd/Ctrl+Maj+L, E, R, J pour aligner.</p>
+<p>De gauche à droite : la police, la taille, gras, italique, souligné, barré, les quatre alignements, retrait
+moins et plus, l&#39;interligne, puis <strong>Paragraphe</strong>, <strong>Mise en page</strong> et <strong>Ω</strong> (caractères spéciaux).</p>
+<h3 id="les-polices">Les polices</h3>
+<p><img src="images/fr/font-picker.jpg" alt="Le choix de la police" loading="lazy"></p>
+<p>Chaque police est dessinée dans sa propre forme, avec un mot sur son usage, et une recherche en haut de la
+liste. Vingt polices sont fournies avec Storoff, rangées par famille :</p>
+<ul>
+<li><strong>Livre</strong> : EB Garamond, Libre Caslon, Libre Baskerville, Crimson Pro, Cormorant Garamond, Vollkorn,
+Literata, Lora, Spectral, Alegreya, Gentium ;</li>
+<li><strong>Écran et lisibilité</strong> : iA Writer Quattro et Duo, Atkinson Hyperlegible, OpenDyslexic ;</li>
+<li><strong>Machine à écrire</strong> : Courier Prime, Special Elite, iA Writer Mono ;</li>
+<li><strong>Caractère</strong> : Playfair Display, Caveat ;</li>
+<li>puis les polices habituelles du système.</li>
+</ul>
+<p><strong>Afficher les polices de cet ordinateur</strong> ajoute toutes celles qui sont installées. <strong>Ajouter une police
+(.ttf, .otf, .woff)…</strong> importe vos propres fichiers, rangés sous « Mes polices » et disponibles dans toutes
+les histoires (et dans le PDF du livre) ; × en retire une.</p>
+<h3 id="paragraphe">Paragraphe</h3>
+<p><img src="images/fr/paragraph.jpg" alt="La fenêtre Paragraphe" loading="lazy"></p>
+<ul>
+<li><strong>Style</strong> : Normal (celui du manuscrit), Citation, Lettre, Vers, Centré, Épigraphe ; chaque style règle
+retraits, espaces et alignement d&#39;un coup.</li>
+<li><strong>Espace avant / après</strong>, <strong>retrait de première ligne</strong>, <strong>retraits gauche et droit</strong>.</li>
+<li><strong>Insérer un séparateur de scène (* * *)</strong> : une ligne qui ne contient que <code>* * *</code>, <code>#</code>, <code>⁂</code> ou <code>~</code>
+est un séparateur, centré et espacé ; le livre l&#39;imprime comme un ornement.</li>
+<li><strong>Couper le chapitre ici</strong>, voir plus haut.</li>
+</ul>
+<p>Les réglages s&#39;appliquent aux paragraphes sélectionnés (⌘A pour tout le chapitre). La fenêtre reste ouverte
+pendant qu&#39;on change les valeurs, pour comparer avant et après.</p>
+<h3 id="mise-en-page">Mise en page</h3>
+<p><img src="images/fr/layout-manuscript.jpg" alt="Mise en page : le manuscrit" loading="lazy"></p>
+<p>L&#39;onglet <strong>Manuscrit</strong> règle le style de toute l&#39;histoire d&#39;un coup : police, taille, interligne, espace entre
+les paragraphes, retrait de première ligne, texte justifié. Des <strong>modèles</strong> prêts à l&#39;emploi : Écran (par
+défaut), Roman, Manuscrit d&#39;éditeur, Machine à écrire, Lecture confortable, Grande lisibilité, Dyslexie,
+Carnet. Un passage mis en forme à la main garde sa mise en forme. L&#39;export RTF reprend ce style.</p>
+<p>La section <strong>Typographie</strong> active ou coupe la typographie automatique (voir ci-dessous) et peut <strong>remettre en
+forme tout le chapitre</strong> en une étape (⌘Z pour annuler).</p>
+<p><img src="images/fr/layout-page.jpg" alt="Mise en page : la page" loading="lazy"></p>
+<p>L&#39;onglet <strong>Page</strong> règle la feuille à l&#39;écran : le <strong>papier</strong> (celui du thème, Ivoire, Parchemin, Sauge, Gris
+doux, Nuit, Encre), la <strong>largeur de la feuille</strong> (étroite, A4, large, pleine largeur), le <strong>zoom du texte</strong> (80
+à 150 %) et les <strong>marges du chapitre</strong>. Ces choix valent pour l&#39;écran : le livre et les exports gardent leur
+propre papier.</p>
+<h3 id="caractères-spéciaux">Caractères spéciaux</h3>
+<p><img src="images/fr/special-characters.jpg" alt="La palette des caractères spéciaux" loading="lazy"></p>
+<p><strong>Ω</strong> ouvre une palette par famille : capitales accentuées (É À Ç Œ…), lettres (œ æ ß ñ…), ponctuation
+(« » “ ” — … ¿ ¡), symboles (° § № €…) et ornements (⁂ ❧ ✦…). Un clic insère le caractère au curseur.</p>
+<h3 id="la-typographie-automatique">La typographie automatique</h3>
+<p>Pendant la frappe, en français : les guillemets « » avec leurs espaces insécables, l&#39;espace fine insécable
+avant ; ! ?, l&#39;espace insécable avant :, l&#39;apostrophe typographique ’. En anglais, les guillemets courbes.
+Dans toutes les langues : un tiret en début de ligne devient un <strong>tiret de dialogue</strong> (—), <code>--</code> donne aussi
+un tiret long, <code>...</code> des points de suspension (…). <strong>Retour arrière</strong> juste après rend ce qui a été tapé.</p>
+<hr>
+<h2 id="5-les-noms-de-lhistoire">5. Les noms de l&#39;histoire</h2>
+<p>Storoff connaît les noms de vos fiches : personnages, lieux, événements, mots du dictionnaire, avec leurs
+autres noms.</p>
+<h3 id="autocomplétion">Autocomplétion</h3>
+<p><img src="images/fr/autocomplete.jpg" alt="L'autocomplétion des noms" loading="lazy"></p>
+<p>Dès les premières lettres d&#39;un nom, une suggestion propose de le compléter (Entrée ou Tab).</p>
+<h3 id="ancres-vers-les-fiches">Ancres vers les fiches</h3>
+<p>Les noms reconnus sont soulignés d&#39;un pointillé discret : <strong>Cmd/Ctrl+clic</strong> ouvre leur fiche dans le panneau
+latéral. Les lieux et les mots du dictionnaire sont aussi reconnus en minuscules (« la cantine ») ; les
+prénoms non (« une rose » n&#39;est pas « Rose »).</p>
+<p>Un personnage au nom composé (« Aeline Du Baronin ») est aussi reconnu par son prénom seul et par son nom de
+famille, avec ou sans particule, tant qu&#39;aucune autre fiche ne le porte. Un mot d&#39;un nom n&#39;est jamais une faute
+d&#39;orthographe (« Les Baronin sont ignobles »).</p>
+<h3 id="créer-une-fiche-depuis-le-texte">Créer une fiche depuis le texte</h3>
+<p>Un <strong>clic droit</strong> sur un mot (ou une sélection) propose de <strong>créer le personnage</strong> ou <strong>le lieu</strong> sans quitter
+le texte. La fiche porte la mention « à compléter » jusqu&#39;à ce que vous la marquiez comme complétée.</p>
+<h3 id="renommer-partout">Renommer partout</h3>
+<p>Quand le nouveau nom d&#39;un personnage ou d&#39;un lieu est validé sur sa fiche, il remplace l&#39;ancien <strong>dans toute
+l&#39;histoire</strong> : le texte des chapitres (dialogues compris), leurs titres, plans et notes, les autres fiches, et
+le résumé et les notes de l&#39;histoire.
+Mots entiers seulement, avec la casse de chaque occurrence (AELINE → ILONA) et les élisions corrigées
+(« d&#39;Aeline » → « de Brann »). Un message dit où le nom a changé, et <strong>Annuler dans le texte</strong> rend les textes.</p>
+<hr>
+<h2 id="6-corriger">6. Corriger</h2>
+<h3 id="le-correcteur-orthographique">Le correcteur orthographique</h3>
+<p>Les fautes sont soulignées en rouge pendant la frappe. La langue se choisit dans l&#39;en-tête ; le français est
+fourni, d&#39;autres langues s&#39;ajoutent dans les <a href="#14-paramètres-et-fichiers">paramètres</a>.</p>
+<p><img src="images/fr/word-menu.jpg" alt="Le menu du clic droit" loading="lazy"></p>
+<p>Un <strong>clic droit</strong> sur un mot souligné rassemble tout au même endroit : les corrections proposées, <strong>ajouter au
+dictionnaire de l&#39;histoire</strong> (avec une définition ; ses accords et conjugaisons sont ensuite reconnus),
+<strong>ignorer</strong>, le problème de grammaire éventuel, et la fiche à créer.</p>
+<h3 id="le-correcteur-grammatical">Le correcteur grammatical</h3>
+<p>Optionnel, il s&#39;installe depuis les paramètres (application de bureau) : <strong>LanguageTool</strong>, qui tourne sur votre
+ordinateur (le texte ne quitte jamais Storoff), souligne en bleu les accords, mots manquants, ponctuation… Le
+dernier mot d&#39;une phrase en cours d&#39;écriture n&#39;est pas souligné.</p>
+<p>Les tirets de dialogue tapés comme des traits d&#39;union sont soulignés, avec « remplacer tous les tirets de
+dialogue du chapitre ».</p>
+<h3 id="le-mode-correction">Le mode correction</h3>
+<p><img src="images/fr/proofreading.jpg" alt="Le mode correction" loading="lazy"></p>
+<p><strong>Corriger</strong> (ou <strong>F7</strong>) parcourt toutes les erreurs du chapitre, une par une : la carte montre le mot, les
+corrections en un clic, ignorer, ignorer partout, ajouter au dictionnaire. <strong>F8</strong> et <strong>Maj+F8</strong> passent à
+l&#39;erreur suivante ou précédente.</p>
+<hr>
+<h2 id="7-relire-et-retravailler">7. Relire et retravailler</h2>
+<h3 id="rechercher-et-remplacer">Rechercher et remplacer</h3>
+<p><img src="images/fr/find.jpg" alt="La barre de recherche" loading="lazy"></p>
+<p><strong>Cmd/Ctrl+F</strong> ouvre une barre au-dessus de la page, avec le texte sélectionné comme recherche. Les accents
+sont ignorés (« ete » trouve « Été »), la casse (<strong>Aa</strong>) et les mots entiers (<strong>ab</strong>) se demandent. Toutes les
+occurrences sont surlignées, « 1 sur 2 », Entrée et Maj+Entrée pour les parcourir.</p>
+<ul>
+<li><strong>Remplacer</strong> remplace l&#39;occurrence courante et passe à la suivante.</li>
+<li><strong>Tout le chapitre</strong> remplace en une étape (⌘Z annule).</li>
+<li><strong>Dans toute l&#39;histoire (3)</strong> remplace dans tous les chapitres (chacun garde l&#39;ancienne version dans son
+historique).</li>
+</ul>
+<p>Le remplacement prend la casse de ce qu&#39;il remplace (« Été » → « Hiver »).</p>
+<h3 id="notes-en-marge">Notes en marge</h3>
+<p><img src="images/fr/margin-note.jpg" alt="Une note en marge" loading="lazy"></p>
+<p>Sélectionnez un passage, puis <strong>✎ Note</strong> dans la bulle : le passage est légèrement surligné, un repère numéroté
+se pose dans la marge droite à sa hauteur et la carte de la note s&#39;ouvre pour écrire. Un clic sur le passage
+ou sur le repère la rouvre ; <strong>Résoudre</strong> retire la note et garde le passage. Les notes ne sortent pas dans les
+exports, et <a href="#à-vérifier">À vérifier</a> rassemble celles qui restent ouvertes.</p>
+<h3 id="mode-lecture">Mode lecture</h3>
+<p><img src="images/fr/reading.jpg" alt="Le mode lecture" loading="lazy"></p>
+<p><strong>Lire</strong> retire la barre de mise en forme et les soulignements des noms : le texte se lit comme une page de
+livre (maintenir Cmd/Ctrl fait réapparaître les ancres). <strong>Écrire</strong> revient à l&#39;écriture.</p>
+<h3 id="la-loupe-du-style">La loupe du style</h3>
+<p><img src="images/fr/style-lens.jpg" alt="La loupe du style" loading="lazy"></p>
+<p><strong>Style</strong> (ou <strong>F9</strong>) ouvre un panneau à côté de la page, pour le chapitre ou tout le livre :</p>
+<ul>
+<li>les chiffres : mots, temps de lecture, longueur moyenne des phrases, part de dialogue, adverbes en -ment,
+lisibilité ;</li>
+<li>le <strong>rythme des phrases</strong> en barres (les longues en orange) ;</li>
+<li>les <strong>répétitions proches</strong>, soulignées de points orange dans le texte ;</li>
+<li>les <strong>tournures à surveiller</strong> (il y a, se mit à, soudain, comme si…) ;</li>
+<li>les <strong>mots qui reviennent</strong> et les expressions répétées ;</li>
+<li>les <strong>noms mal orthographiés</strong> probables (un mot à une lettre d&#39;un nom de l&#39;histoire).</li>
+</ul>
+<p>Un clic sur un mot ou une expression la surligne partout dans le texte.</p>
+<h3 id="écouter-le-texte">Écouter le texte</h3>
+<p><strong>Écouter</strong> lit le chapitre à voix haute avec une voix de l&#39;ordinateur, phrase après phrase depuis le curseur ;
+la phrase lue est sélectionnée. Avec l&#39;icône 👤 active, <strong>chaque personnage a sa voix</strong> : la narration garde la
+voix habituelle, les répliques prennent les autres voix de l&#39;ordinateur (plus aiguë pour « dit-elle », plus
+grave pour « dit-il »).</p>
+<hr>
+<h2 id="8-le-confort-décriture">8. Le confort d&#39;écriture</h2>
+<h3 id="mode-focus">Mode focus</h3>
+<p><img src="images/fr/focus.jpg" alt="Le mode focus" loading="lazy"></p>
+<p><strong>Focus</strong> (ou <strong>Cmd/Ctrl+Maj+F</strong>) passe en plein écran : il ne reste que la page, les autres paragraphes
+s&#39;estompent et la ligne en cours reste centrée. <strong>Focus : paragraphe / phrase</strong> choisit ce qui reste
+lumineux ; par phrase, seule la phrase en cours d&#39;écriture reste nette. <strong>Échap</strong> ou <strong>Quitter le focus</strong> en
+sort.</p>
+<h3 id="objectif-du-jour-et-sprints">Objectif du jour et sprints</h3>
+<p><img src="images/fr/sprint-menu.jpg" alt="Le menu de l'objectif du jour" loading="lazy"></p>
+<p>L&#39;anneau de l&#39;en-tête se remplit vers votre <strong>objectif quotidien</strong> (les mots écrits aujourd&#39;hui ; effacer ne
+fait pas reculer le compteur). Son menu montre :</p>
+<ul>
+<li>le <strong>calendrier</strong> des douze dernières semaines, une case par jour, plus claire quand le jour approche de
+l&#39;objectif, et les <strong>jours d&#39;affilée</strong> ;</li>
+<li>l&#39;<strong>objectif quotidien</strong> en mots ;</li>
+<li>les <strong>sprints d&#39;écriture</strong> de 15, 25 ou 45 minutes (temps restant et mots écrits dans l&#39;en-tête) ;</li>
+<li><strong>Sans retour arrière</strong> : pendant le sprint, rien ne s&#39;efface. Retour arrière <strong>barre</strong> au lieu d&#39;effacer,
+comme sur papier ; à la fin, vous effacez les ratures ou les gardez ;</li>
+<li>la <strong>note pour la prochaine fois</strong>, la même que sur la carte « Reprendre ».</li>
+</ul>
+<h3 id="ambiance-et-machine-à-écrire">Ambiance et machine à écrire</h3>
+<p><img src="images/fr/ambience.jpg" alt="Le menu de l'ambiance" loading="lazy"></p>
+<p>Le menu de l&#39;ambiance joue de la <strong>pluie</strong>, du <strong>vent</strong>, un <strong>feu de bois</strong>, le <strong>bord de mer</strong> ou une <strong>nuit
+d&#39;été</strong>, créés à la volée (rien à télécharger), avec un volume. <strong>Machine à écrire ⌨</strong> fait sonner chaque touche
+tapée dans le manuscrit comme une vraie machine, avec la clochette au retour à la ligne. Le son suit l&#39;écrivain
+d&#39;un chapitre à une fiche et s&#39;arrête quand l&#39;histoire se ferme.</p>
+<h3 id="raccourcis-clavier">Raccourcis clavier</h3>
+<p><img src="images/fr/shortcuts.jpg" alt="La liste des raccourcis" loading="lazy"></p>
+<p><strong>Cmd/Ctrl+/</strong> ouvre la liste de tous les raccourcis, par famille. Voir aussi
+<a href="#15-raccourcis-clavier">Raccourcis clavier</a>.</p>
+<hr>
+<h2 id="9-les-fiches">9. Les fiches</h2>
+<p><img src="images/fr/sheet.jpg" alt="Une fiche de personnage" loading="lazy"></p>
+<p>Quatre sortes de fiches, chacune dans sa section du panneau de gauche :</p>
+<ul>
+<li><strong>Personnages</strong> : des champs (rôle, âge, apparence, personnalité, motivation…), chacun dans sa case ; ils
+s&#39;ajoutent, se renomment et se retirent.</li>
+<li><strong>Lieux</strong> : une description, et éventuellement <a href="#11-les-cartes">une carte</a>.</li>
+<li><strong>Événements</strong> : un titre, un « Quand » libre (« an 302 », « 12 mars 1890 », « jour 3 »…), une description.</li>
+<li><strong>Dictionnaire</strong> : les mots inventés de l&#39;histoire, voir ci-dessous.</li>
+</ul>
+<p>Sur toutes les fiches :</p>
+<ul>
+<li><strong>Autres noms</strong> : surnoms et titres (« Ael&#39; »), reconnus dans le texte ; pour un personnage, avec les
+personnages qui l&#39;emploient.</li>
+<li><strong>Entretien</strong> (personnages et lieux) : <strong>Poser une question</strong> tire une question parmi celles qui n&#39;ont pas
+encore de réponse (« Quelle odeur te ramène à ton enfance ? ») ; <strong>Garder la réponse</strong> en fait une note.</li>
+<li><strong>Notes</strong> : des notes avec un titre.</li>
+<li><strong>Liens</strong> : « ami de » [Aeline], avec le nom du lien vu de l&#39;autre côté (« amie de »). Un lien se voit et se
+modifie sur les deux fiches ; deux fiches partagent un lien au plus.</li>
+<li><strong>Apparaît dans</strong> : les chapitres qui mentionnent la fiche, calculés automatiquement ; un clic ouvre le
+chapitre.</li>
+<li>Le <strong>dé</strong> à côté du nom (personnages et lieux) propose huit noms dans le style de l&#39;histoire.</li>
+<li><strong>Historique</strong> et <strong>Supprimer</strong> en haut à droite. Supprimer un lieu qui en contient d&#39;autres (les
+territoires d&#39;un monde, les bâtiments d&#39;un territoire…) propose de les supprimer aussi.</li>
+</ul>
+<h3 id="le-dictionnaire-de-lhistoire">Le dictionnaire de l&#39;histoire</h3>
+<p><img src="images/fr/glossary.jpg" alt="Un mot du dictionnaire" loading="lazy"></p>
+<p>Un mot du dictionnaire a une <strong>nature</strong> (nom, adjectif, verbe en -er, en -ir, invariable) et une
+<strong>définition</strong>. Storoff en déduit les <strong>formes reconnues dans le texte</strong> (ici « Barelin, Barelins ») : le
+pluriel, le féminin, les conjugaisons ne sont plus des fautes. Des <strong>autres formes</strong> s&#39;ajoutent à la main.</p>
+<hr>
+<h2 id="10-les-vues-densemble">10. Les vues d&#39;ensemble</h2>
+<h3 id="qui-parle-">Qui parle ?</h3>
+<p><img src="images/fr/voices.jpg" alt="Qui parle ?" loading="lazy"></p>
+<p>La bulle de la table des matières range <strong>toutes les répliques du livre par personnage</strong>, pour relire chaque
+voix à la suite. Le locuteur est trouvé dans l&#39;incise (« demanda Aeline »), autour de la réplique, ou deviné
+d&#39;après les tours de parole et le personnage dont parlait le passage précédent ; une réplique devinée a un bord
+en pointillé.</p>
+<ul>
+<li>Pour chacun : nombre de répliques, mots par réplique, part de questions et d&#39;exclamations, ses expressions et
+les mots qui lui sont propres.</li>
+<li><strong>Raconté à la première personne par</strong> : dans un récit au « je », le narrateur est deviné (les répliques
+« répondis-je » lui reviennent) ; confirmez-le ou choisissez-en un autre.</li>
+<li><strong>Locuteur incertain</strong> regroupe les répliques que personne ne peut attribuer : une incise à ajouter.</li>
+</ul>
+<p>Un clic sur une réplique ouvre son chapitre, la réplique surlignée.</p>
+<h3 id="présences-et-relations">Présences et relations</h3>
+<p><img src="images/fr/presence.jpg" alt="Présences" loading="lazy"></p>
+<p>La grille de la table des matières croise les personnages (ou les lieux) et les chapitres : une case plus
+foncée, c&#39;est plus de mentions ; une pastille orange signale une longue absence. Un clic sur une case ouvre le
+chapitre. <strong>Relations</strong> dispose les fiches en graphe : les liens écrits sur les fiches en doré, les chapitres
+partagés en gris.</p>
+<h3 id="carte-des-liens">Carte des liens</h3>
+<p><img src="images/fr/links-map.jpg" alt="La carte des liens" loading="lazy"></p>
+<p>Le bouton à côté du <strong>+</strong> des personnages ou des lieux ouvre la carte des liens : chaque lien écrit sur sa
+ligne dans les deux sens, une flèche vers la fiche qu&#39;il désigne.</p>
+<ul>
+<li>Glissez une fiche pour la placer ; elle reste où vous l&#39;avez posée. <strong>Poser une fiche…</strong> en ajoute une.</li>
+<li><strong>Relier</strong> : glissez d&#39;une fiche à une autre pour créer un lien.</li>
+<li><strong>Arbre généalogique</strong> range les générations d&#39;après les liens de famille.</li>
+<li>Les filtres <strong>Personnages, Lieux, Événements</strong> choisissent les fiches montrées.</li>
+</ul>
+<h3 id="chronologie">Chronologie</h3>
+<p><img src="images/fr/timeline.jpg" alt="La chronologie" loading="lazy"></p>
+<p>Le bouton à côté du <strong>+</strong> des événements ouvre la chronologie : les événements dans l&#39;ordre où ils se passent,
+lus dans leur « Quand », avec « 13 ans plus tard » entre eux, les personnages et lieux liés, et le chapitre qui
+le raconte. <strong>Ordre du récit</strong> les montre dans l&#39;ordre du livre (les retours en arrière sont signalés).</p>
+<ul>
+<li>Avec un champ <strong>Naissance</strong>, chaque personnage a son âge à chaque événement ; un personnage lié à un
+événement avant sa naissance ou après sa mort est signalé.</li>
+<li><strong>Suivre</strong> un seul personnage.</li>
+<li><strong>Calendrier</strong> : le calendrier réel (avec la vraie phase de la Lune 🌗) ou un calendrier inventé, avec ses
+mois et ses lunes.</li>
+</ul>
+<h3 id="à-vérifier">À vérifier</h3>
+<p><img src="images/fr/checks.jpg" alt="À vérifier" loading="lazy"></p>
+<p><strong>À vérifier</strong>, dans l&#39;en-tête, rassemble ce que les outils ont remarqué, les incohérences d&#39;abord : notes en
+marge ouvertes, personnage lié à un événement après sa mort, mot qui ressemble à un nom mal orthographié,
+personnage absent depuis longtemps, fiche à compléter, réplique sans locuteur clair, date illisible, lien sans
+nom, chapitre vide. <strong>Voir</strong> mène à l&#39;endroit à corriger.</p>
+<hr>
+<h2 id="11-les-cartes">11. Les cartes</h2>
+<p>Un lieu peut devenir une carte : sur sa fiche, <strong>Créer une carte…</strong>, puis le type, définitif :</p>
+<ul>
+<li><strong>Monde</strong> : une planète, en globe 3D ou en planisphère ;</li>
+<li><strong>Territoire</strong> : une ville, une forêt, une île… en 3D ou vue de dessus, posé sur un monde ;</li>
+<li><strong>Bâtiment</strong> : en 3D ou vu de dessus, posé sur un territoire.</li>
+</ul>
+<h3 id="le-monde">Le monde</h3>
+<p><img src="images/fr/map.jpg" alt="Un monde en 3D" loading="lazy"></p>
+<p>Une planète neuve est un océan. <strong>Générer la planète</strong> crée continents, reliefs et rivières selon les réglages
+(océans, continents, relief, rivières, graine) ; <strong>Réinitialiser le monde…</strong> remet à plat en gardant ce que vous
+choisissez. Les outils, en haut à gauche :</p>
+<ul>
+<li><strong>Naviguer</strong> (H) ; <strong>Élever</strong>, <strong>Abaisser</strong>, <strong>Aplanir</strong>, <strong>Adoucir</strong> le terrain au pinceau ;</li>
+<li><strong>Peindre un biome</strong> (forêt, désert, toundra…) ou rendre le <strong>biome automatique</strong> ;</li>
+<li>tracer une <strong>rivière</strong>, une <strong>route</strong>, une <strong>frontière</strong>, une <strong>région</strong> (une nation, une province) ;</li>
+<li>poser un <strong>lieu</strong> ou un <strong>territoire</strong>, écrire un <strong>nom sur la carte</strong> (un lieu à compléter est créé) ;</li>
+<li><strong>Mesurer une distance</strong>, avec les temps de trajet à pied, à cheval et en bateau ;</li>
+<li>annuler et rétablir (Cmd/Ctrl+Z, Cmd/Ctrl+Maj+Z).</li>
+</ul>
+<p>Les <strong>lieux de cette carte</strong> sont listés à droite ; <strong>Aller à</strong> y amène la vue.</p>
+<p><img src="images/fr/map-2d.jpg" alt="Un monde en planisphère" loading="lazy"></p>
+<p><strong>2D</strong> montre le monde en planisphère, ou <strong>cadré</strong> sur une région. Le bouton d&#39;impression imprime la carte.</p>
+<h3 id="territoires-et-bâtiments">Territoires et bâtiments</h3>
+<p>Un territoire se dessine vu de dessus ou en 3D : <strong>peindre le sol</strong> (herbe, pavé, eau, sable…), <strong>tracer des
+routes</strong> (virages et carrefours se placent seuls), dessiner des <strong>quartiers</strong>, esquisser des <strong>volumes</strong>,
+<strong>poser des modèles</strong> 3D. Un bâtiment se construit étage par étage : <strong>pièces</strong> (chacune devient un lieu à
+compléter), <strong>portes</strong>, <strong>fenêtres</strong>, <strong>passages</strong>, meubles, avec une <strong>vue en coupe</strong> (C).</p>
+<p>La <strong>bibliothèque de modèles</strong> importe des kits gratuits (licence CC0) tels quels, en <code>.zip</code>.</p>
+<hr>
+<h2 id="12-lhistorique">12. L&#39;historique</h2>
+<p><img src="images/fr/history.jpg" alt="L'historique d'un chapitre" loading="lazy"></p>
+<p>Chaque chapitre et chaque fiche a son propre historique : <strong>Historique</strong> l&#39;ouvre dans le panneau latéral,
+chaque version avec sa date et ce qui a changé (« Texte +909 caractères · Modifié : titre, plan »).
+<strong>Annuler le dernier changement</strong> ou <strong>Revenir à cette version</strong> ne détruit rien : l&#39;état actuel reste dans
+l&#39;historique. Cmd/Ctrl+S enregistre une version tout de suite.</p>
+<hr>
+<h2 id="13-le-livre-et-les-exports">13. Le livre et les exports</h2>
+<h3 id="le-livre">Le livre</h3>
+<p><img src="images/fr/book.jpg" alt="Le livre mis en page" loading="lazy"></p>
+<p><strong>Exporter › Voir le livre</strong> met le manuscrit en page comme un livre imprimé, en double page : format <strong>poche</strong>
+(11 × 17,8 cm), <strong>A5</strong> ou <strong>grand format</strong>, dans la police du manuscrit, justifié avec césure. Une page de
+titre ouvre le livre ; chaque chapitre commence sur une nouvelle page avec son numéro, son titre et une
+<strong>lettrine</strong> (désactivable) ; les séparateurs de scène deviennent un ornement ; titre courant et numéros de
+page. Les flèches, Page ↑ ↓, Début et Fin tournent les pages. <strong>Imprimer / PDF</strong> imprime le livre ou
+l&#39;enregistre en PDF, polices comprises.</p>
+<h3 id="les-exports">Les exports</h3>
+<p><img src="images/fr/export-menu.jpg" alt="Le menu Exporter" loading="lazy"></p>
+<ul>
+<li><strong>RTF</strong> : pour WordPad, Word ou LibreOffice, avec toute la mise en forme et le style du manuscrit.</li>
+<li><strong>Texte brut</strong> (.txt).</li>
+<li><strong>Livre numérique</strong> (.epub) : un EPUB 3 avec sa table des matières.</li>
+<li><strong>Histoire complète</strong> (.storoff) : tout (chapitres, fiches, cartes), à rouvrir avec « Importer une
+histoire… » ; l&#39;historique n&#39;est pas inclus.</li>
+</ul>
+<hr>
+<h2 id="14-paramètres-et-fichiers">14. Paramètres et fichiers</h2>
+<p><img src="images/fr/settings.jpg" alt="Les paramètres" loading="lazy"></p>
+<ul>
+<li><strong>Langue de l&#39;interface</strong> : français ou anglais, appliquée tout de suite.</li>
+<li><strong>Histoires</strong> : le dossier où elles sont rangées (application de bureau), que vous pouvez changer et ouvrir.</li>
+<li><strong>Correcteur orthographique</strong> : ajouter une langue en important un dictionnaire Hunspell (les fichiers <code>.aff</code>
+et <code>.dic</code> ensemble, ceux de LibreOffice conviennent).</li>
+<li><strong>Correcteur grammatical</strong> : installer LanguageTool, qui fonctionne sur votre ordinateur.</li>
+</ul>
+<p><strong>Où sont les histoires ?</strong> Dans <code>Documents/Storoff/</code> par défaut. Chaque histoire est un dossier de fichiers
+JSON lisibles : <code>story.json</code>, un sous-dossier par sorte de fiche, et <code>.history/</code> pour l&#39;historique. Rien n&#39;est
+envoyé sur internet.</p>
+<p>La version navigateur (pour le développement) garde les histoires en mémoire le temps de la session.</p>
+<hr>
+<h2 id="15-raccourcis-clavier">15. Raccourcis clavier</h2>
+<p>⌘ sur Mac, Ctrl sur Windows et Linux.</p>
+<table>
+<thead>
+<tr>
+<th>Raccourci</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⌘B · ⌘I · ⌘U</td>
+<td>Gras, italique, souligné</td>
+</tr>
+<tr>
+<td>⌘⇧S</td>
+<td>Barré</td>
+</tr>
+<tr>
+<td>⌘⇧L · E · R · J</td>
+<td>Aligner à gauche, centrer, à droite, justifier</td>
+</tr>
+<tr>
+<td>⌘Z · ⌘⇧Z</td>
+<td>Annuler, rétablir</td>
+</tr>
+<tr>
+<td>Tab · ⇧Tab</td>
+<td>Insérer une tabulation, la retirer</td>
+</tr>
+<tr>
+<td><code>-</code> puis espace · <code>--</code></td>
+<td>Tiret de dialogue (début de ligne), tiret long</td>
+</tr>
+<tr>
+<td>⌫ juste après une correction</td>
+<td>Défaire la correction typographique</td>
+</tr>
+<tr>
+<td>⌘ clic sur un nom</td>
+<td>Ouvrir sa fiche</td>
+</tr>
+<tr>
+<td>Clic droit</td>
+<td>Corrections, dictionnaire, fiche à créer</td>
+</tr>
+<tr>
+<td>⌘F · Entrée · ⇧Entrée · Échap</td>
+<td>Rechercher, résultat suivant, précédent, fermer</td>
+</tr>
+<tr>
+<td>⌘⇧F · Échap</td>
+<td>Mode focus, en sortir</td>
+</tr>
+<tr>
+<td>F7 · F8 · ⇧F8</td>
+<td>Mode correction, erreur suivante, précédente</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>Loupe du style</td>
+</tr>
+<tr>
+<td>⌘S</td>
+<td>Enregistrer tout de suite</td>
+</tr>
+<tr>
+<td>⌘/</td>
+<td>La liste des raccourcis</td>
+</tr>
+<tr>
+<td>← → · Page ↑ ↓ · Début · Fin</td>
+<td>Tourner les pages du livre</td>
+</tr>
+</tbody></table>
+
+  </main>
+</body>
+</html>
