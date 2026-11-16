@@ -46,7 +46,7 @@
 </head>
 <body>
   <nav class="bar">
-    <a class="home" href="../">Storoff 1.1.1</a>
+    <a class="home" href="../">Storoff 1.2.0</a>
     <a class="download" href="../">Download Storoff</a>
   </nav>
   <main>
@@ -88,6 +88,11 @@ first chapter.</li>
 takes the history with it.</li>
 <li><strong>Import a story…</strong>: opens a <code>.storoff</code> file (a whole story exported from Storoff, see
 <a href="#the-exports">Exports</a>) and adds it as a new story.</li>
+<li><strong>Import a Word document…</strong>: opens a <code>.docx</code> file, written by Storoff or by Word, and makes it a new
+story: chapters, margins, bold, italics, underline, erasures and the manuscript style. When the document
+was exported from a story still there, Storoff offers to <strong>Compare</strong> it with that story (see
+<a href="#reimport-a-word-document">Reimport a Word document</a>); tick &quot;Import it as a new story instead&quot; to make a
+copy.</li>
 <li><strong>Settings</strong>: the interface language, the stories folder, the dictionaries (see
 <a href="#14-settings-and-files">Settings</a>).</li>
 </ul>
@@ -490,9 +495,56 @@ turn the pages. <strong>Print / PDF</strong> prints the book or saves it as PDF,
 <li><strong>RTF</strong>: for WordPad, Word or LibreOffice, with all the formatting and the style of the manuscript.</li>
 <li><strong>Plain text</strong> (.txt).</li>
 <li><strong>E-book</strong> (.epub): an EPUB 3 with its table of contents.</li>
+<li><strong>Word document</strong> (.docx): one chapter per level-1 heading, with the margins, the formatting (bold,
+italics, underline, strikethrough, font and size) and the paragraph styles of Storoff (quotation,
+letter, verse, centred, epigraph), which Word shows by their names. The file comes back unchanged in
+Storoff with &quot;Import a Word document…&quot;: each chapter keeps its id and its title, and the manuscript
+style is restored. Edited in Word, it still opens, but the styles named by Storoff must stay in place
+to be recognised.</li>
+<li><strong>Reimport a Word document…</strong>: compares a Word document with the open story (see below).</li>
 <li><strong>Whole story</strong> (.storoff): everything (chapters, sheets, maps), to reopen with &quot;Import a story…&quot;; the
 history is not included.</li>
+<li><strong>Proof of prior creation…</strong>: a dated dossier proving that your text existed on that day (see below).</li>
 </ul>
+<h3 id="prove-that-a-text-came-first">Prove that a text came first</h3>
+<p><img src="images/en/proof.jpg" alt="Before creating the proof dossier" loading="lazy"></p>
+<p>Your texts are protected by copyright as soon as they are created, without any registration. In case of
+plagiarism, though, you must <strong>prove</strong> you wrote them first: do it before sending a manuscript to a
+publisher, a contest or beta readers.</p>
+<p><strong>Export › Proof of prior creation…</strong> saves a <code>.zip</code> dossier with:</p>
+<ul>
+<li>the manuscript as plain text and RTF, and the whole story (.storoff);</li>
+<li><code>empreintes-sha256.txt</code>: the title, the date, the number of words, and the <strong>digital fingerprint</strong> of
+every file (changing a single letter changes the fingerprint);</li>
+<li><code>empreintes-sha256.txt.ots</code>: the <strong>timestamp</strong> of that file by the public OpenTimestamps servers, anchored
+in the Bitcoin blockchain a few hours later. Only the fingerprint is sent: nothing of your text leaves the
+computer. Without a connection, the dossier is made without timestamp.</li>
+</ul>
+<p>To check or complete the timestamp, drop the two files <code>empreintes-sha256.txt</code> and <code>.ots</code> on
+<a href="https://opentimestamps.org">opentimestamps.org</a>. Keep the dossier as it is: a changed file no longer matches
+its fingerprint. For a stronger proof, also deposit the dossier with a trusted third party: in France the
+INPI <strong>e-Soleau</strong>, the SGDL, a notary or a bailiff.</p>
+<h3 id="reimport-a-word-document">Reimport a Word document</h3>
+<p><img src="images/en/word-review.jpg" alt="The review of a reimported Word document" loading="lazy"></p>
+<p>You exported the manuscript to Word, and you (or a proofreader) reworked it in Word. <strong>Export › Reimport a
+Word document…</strong> opens that document and shows what it changes in the story, before changing anything:</p>
+<ul>
+<li><strong>Chapters</strong> are recognised even when moved, renamed or preceded by a new chapter (Storoff left an
+invisible mark on each heading), then by their title and their text for a document written elsewhere. A
+chapter only the document has is a <strong>New chapter</strong>; a chapter the document no longer has is <strong>Not in the
+document</strong>, and is deleted only if you accept (its history goes with it).</li>
+<li><strong>Paragraphs</strong> that changed are compared word by word (removed text struck through in red, added text in
+green); those whose formatting alone changed say which (font, bold, italic, alignment, line spacing…).
+Paragraphs added or removed are shown as blocks.</li>
+<li><strong>The story</strong>: its title, the <strong>Manuscript style</strong> (when the &quot;Normal&quot; style changed in Word) and the
+<strong>Order of the chapters</strong>.</li>
+</ul>
+<p>Each change has its <strong>Accept</strong> and <strong>Refuse</strong> buttons; <strong>Whole chapter</strong>, <strong>Accept all</strong> and <strong>Refuse all</strong>
+decide for several at once. <strong>Apply the changes</strong> brings the accepted ones in: every chapter changed gets a
+new version in its <a href="#12-history">history</a>, its previous version stays there. <strong>Discard</strong> changes nothing.</p>
+<p>What Word changes by itself (non-breaking spaces, typographic apostrophes) does not count as a change. Notes
+in the margin stay on the text the document kept. Chapters changed in Storoff after the export are flagged:
+accepting the document&#39;s version may undo those changes.</p>
 <hr>
 <h2 id="14-settings-and-files">14. Settings and files</h2>
 <p><img src="images/en/settings.jpg" alt="The settings" loading="lazy"></p>
@@ -502,7 +554,14 @@ history is not included.</li>
 <li><strong>Spell checker</strong>: add a language by importing a Hunspell dictionary (the <code>.aff</code> and <code>.dic</code> files together;
 LibreOffice&#39;s work).</li>
 <li><strong>Grammar checker</strong>: install LanguageTool, which runs on your computer.</li>
+<li><strong>Terms of use</strong>: the version accepted, and <strong>Read the terms of use</strong> to read them again.</li>
 </ul>
+<h3 id="terms-of-use">Terms of use</h3>
+<p><img src="images/en/terms.jpg" alt="The terms of use at the first start" loading="lazy"></p>
+<p>At the first start, Storoff presents its <a href="terms-en.html">terms of use</a>. Tick &quot;I have read the terms of use and
+I accept them&quot;, then <strong>I accept</strong>. They say in particular that your stories stay on your computer, that the
+publisher has no access to them, and that you alone are responsible for the content you create: creating
+illegal content is forbidden. When they change, the new version is presented at the next start.</p>
 <p><strong>Where are the stories?</strong> In <code>Documents/Storoff/</code> by default. Each story is a folder of readable JSON files:
 <code>story.json</code>, a sub-folder per kind of sheet, and <code>.history/</code> for the history. Nothing is sent over the
 internet.</p>

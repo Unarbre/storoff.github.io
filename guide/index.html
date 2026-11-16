@@ -46,7 +46,7 @@
 </head>
 <body>
   <nav class="bar">
-    <a class="home" href="../">Storoff 1.1.1</a>
+    <a class="home" href="../">Storoff 1.2.0</a>
     <a class="download" href="../">Télécharger Storoff</a>
   </nav>
   <main>
@@ -86,6 +86,11 @@ son premier chapitre.</li>
 demande confirmation et emporte l&#39;historique.</li>
 <li><strong>Importer une histoire…</strong> : ouvre un fichier <code>.storoff</code> (une histoire complète exportée depuis Storoff,
 voir <a href="#les-exports">Exports</a>) et l&#39;ajoute comme nouvelle histoire.</li>
+<li><strong>Importer un document Word…</strong> : ouvre un fichier <code>.docx</code>, écrit par Storoff ou par Word, et en fait une
+nouvelle histoire : chapitres, marges, gras, italique, soulignement, rature et style du manuscrit. Si le
+document a été exporté depuis une histoire encore présente, Storoff propose de le <strong>Comparer</strong> avec elle
+(voir <a href="#réimporter-un-document-word">Réimporter un document Word</a>) ; cochez « Importer plutôt comme une
+nouvelle histoire » pour en faire une copie.</li>
 <li><strong>Paramètres</strong> : la langue de l&#39;interface, le dossier des histoires, les dictionnaires (voir
 <a href="#14-paramètres-et-fichiers">Paramètres</a>).</li>
 </ul>
@@ -499,9 +504,59 @@ l&#39;enregistre en PDF, polices comprises.</p>
 <li><strong>RTF</strong> : pour WordPad, Word ou LibreOffice, avec toute la mise en forme et le style du manuscrit.</li>
 <li><strong>Texte brut</strong> (.txt).</li>
 <li><strong>Livre numérique</strong> (.epub) : un EPUB 3 avec sa table des matières.</li>
+<li><strong>Document Word</strong> (.docx) : un chapitre par titre de niveau 1, avec les marges, la mise en forme
+(gras, italique, souligné, barré, police et taille) et les styles de paragraphe de Storoff (citation,
+lettre, vers, centré, épigraphe), que Word affiche par leur nom. Le fichier revient à l&#39;identique dans
+Storoff par « Importer un document Word… » : chaque chapitre garde son identifiant et son titre, et le
+style du manuscrit est restauré. Modifié dans Word, il se rouvre aussi, mais les styles nommés par
+Storoff doivent rester en place pour être reconnus.</li>
+<li><strong>Réimporter un document Word…</strong> : compare un document Word avec l&#39;histoire ouverte (voir ci-dessous).</li>
 <li><strong>Histoire complète</strong> (.storoff) : tout (chapitres, fiches, cartes), à rouvrir avec « Importer une
 histoire… » ; l&#39;historique n&#39;est pas inclus.</li>
+<li><strong>Preuve d&#39;antériorité…</strong> : un dossier daté qui prouve que votre texte existait à ce jour (voir ci-dessous).</li>
 </ul>
+<h3 id="prouver-lantériorité-dun-texte">Prouver l&#39;antériorité d&#39;un texte</h3>
+<p><img src="images/fr/proof.jpg" alt="Avant de créer le dossier de preuve" loading="lazy"></p>
+<p>Vos textes sont protégés par le droit d&#39;auteur dès leur création, sans aucun dépôt. En cas de plagiat, il
+faut en revanche <strong>prouver</strong> que vous les aviez écrits avant : faites-le avant d&#39;envoyer un manuscrit à un
+éditeur, à un concours ou à des bêta-lecteurs.</p>
+<p><strong>Exporter › Preuve d&#39;antériorité…</strong> enregistre un dossier <code>.zip</code> avec :</p>
+<ul>
+<li>le manuscrit en texte brut et en RTF, et l&#39;histoire complète (.storoff) ;</li>
+<li><code>empreintes-sha256.txt</code> : le titre, la date, le nombre de mots, et l&#39;<strong>empreinte numérique</strong> de chaque
+fichier (changer une seule lettre change l&#39;empreinte) ;</li>
+<li><code>empreintes-sha256.txt.ots</code> : l&#39;<strong>horodatage</strong> de ce fichier par les serveurs publics OpenTimestamps,
+ancré dans la blockchain Bitcoin quelques heures plus tard. Seule l&#39;empreinte est envoyée : rien de votre
+texte ne quitte l&#39;ordinateur. Sans connexion, le dossier est créé sans horodatage.</li>
+</ul>
+<p>Pour vérifier ou compléter l&#39;horodatage, déposez les deux fichiers <code>empreintes-sha256.txt</code> et <code>.ots</code> sur
+<a href="https://opentimestamps.org">opentimestamps.org</a>. Gardez le dossier tel quel : un fichier modifié ne
+correspond plus à son empreinte. Pour une preuve plus forte, déposez aussi le dossier auprès d&#39;un tiers de
+confiance : l&#39;<strong>e-Soleau</strong> de l&#39;INPI, la SGDL, un notaire ou un commissaire de justice.</p>
+<h3 id="réimporter-un-document-word">Réimporter un document Word</h3>
+<p><img src="images/fr/word-review.jpg" alt="La revue d'un document Word réimporté" loading="lazy"></p>
+<p>Vous avez exporté le manuscrit en Word, et vous (ou un relecteur) l&#39;avez retravaillé dans Word. <strong>Exporter ›
+Réimporter un document Word…</strong> ouvre ce document et montre ce qu&#39;il change dans l&#39;histoire, avant de rien
+modifier :</p>
+<ul>
+<li><strong>Les chapitres</strong> sont reconnus même déplacés, renommés ou précédés d&#39;un nouveau chapitre (Storoff a laissé
+une marque invisible sur chaque titre), puis par leur titre et leur texte pour un document écrit ailleurs.
+Un chapitre que seul le document a est un <strong>Nouveau chapitre</strong> ; un chapitre que le document n&#39;a plus est
+<strong>Absent du document</strong>, et n&#39;est supprimé que si vous l&#39;acceptez (son historique part avec lui).</li>
+<li><strong>Les paragraphes</strong> modifiés sont comparés mot à mot (le texte retiré barré en rouge, l&#39;ajouté en vert) ;
+ceux dont seule la mise en forme change disent laquelle (police, gras, italique, alignement, interligne…).
+Les paragraphes ajoutés ou supprimés sont montrés en bloc.</li>
+<li><strong>L&#39;histoire</strong> : son titre, le <strong>Style du manuscrit</strong> (si le style « Normal » a changé dans Word) et
+l&#39;<strong>Ordre des chapitres</strong>.</li>
+</ul>
+<p>Chaque changement a ses boutons <strong>Accepter</strong> et <strong>Refuser</strong> ; <strong>Tout le chapitre</strong>, <strong>Tout accepter</strong> et
+<strong>Tout refuser</strong> décident pour plusieurs à la fois. <strong>Appliquer les changements</strong> reporte ceux acceptés :
+chaque chapitre modifié reçoit une nouvelle version dans son <a href="#12-lhistorique">historique</a>, sa version
+d&#39;avant y reste. <strong>Abandonner</strong> ne touche à rien.</p>
+<p>Ce que Word change de lui-même (espaces insécables, apostrophes typographiques) ne compte pas comme un
+changement. Les notes dans la marge restent sur le texte que le document a gardé. Si des chapitres ont été
+modifiés dans Storoff après l&#39;export, ils sont signalés : accepter la version du document pourrait défaire
+ces modifications.</p>
 <hr>
 <h2 id="14-paramètres-et-fichiers">14. Paramètres et fichiers</h2>
 <p><img src="images/fr/settings.jpg" alt="Les paramètres" loading="lazy"></p>
@@ -511,7 +566,16 @@ histoire… » ; l&#39;historique n&#39;est pas inclus.</li>
 <li><strong>Correcteur orthographique</strong> : ajouter une langue en important un dictionnaire Hunspell (les fichiers <code>.aff</code>
 et <code>.dic</code> ensemble, ceux de LibreOffice conviennent).</li>
 <li><strong>Correcteur grammatical</strong> : installer LanguageTool, qui fonctionne sur votre ordinateur.</li>
+<li><strong>Conditions d&#39;utilisation</strong> : la version acceptée, et <strong>Lire les conditions d&#39;utilisation</strong> pour les
+relire.</li>
 </ul>
+<h3 id="conditions-dutilisation">Conditions d&#39;utilisation</h3>
+<p><img src="images/fr/terms.jpg" alt="Les conditions d'utilisation au premier démarrage" loading="lazy"></p>
+<p>Au premier démarrage, Storoff présente ses <a href="terms.html">conditions d&#39;utilisation</a>. Cochez « J&#39;ai lu les
+conditions d&#39;utilisation et je les accepte », puis <strong>J&#39;accepte</strong>. Elles disent notamment que vos histoires
+restent sur votre ordinateur, que l&#39;éditeur n&#39;y a pas accès, et que vous êtes seul responsable des contenus
+que vous créez : la création de contenus illicites est interdite. Si elles changent, la nouvelle version est
+présentée au démarrage suivant.</p>
 <p><strong>Où sont les histoires ?</strong> Dans <code>Documents/Storoff/</code> par défaut. Chaque histoire est un dossier de fichiers
 JSON lisibles : <code>story.json</code>, un sous-dossier par sorte de fiche, et <code>.history/</code> pour l&#39;historique. Rien n&#39;est
 envoyé sur internet.</p>
