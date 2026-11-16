@@ -44,6 +44,14 @@
                    border-radius: 10px; box-shadow: 0 6px 24px rgb(0 0 0 / 12%); }
     .preview:hover img { border-color: var(--accent); }
     .terms { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.85rem; }
+    .steps { padding-left: 1.25rem; }
+    .steps li + li { margin-top: 0.75rem; }
+    .command { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 0.5rem 0; }
+    .command code { padding: 0.3rem 0.5rem; overflow-wrap: anywhere; user-select: all; }
+    .copy { font: inherit; font-size: 0.85rem; padding: 0.3rem 0.8rem; border: 1px solid var(--accent);
+            border-radius: 6px; background: var(--accent); color: var(--on-accent); cursor: pointer; }
+    kbd { font-family: inherit; font-size: 0.85em; padding: 0 0.35rem; border: 1px solid var(--border);
+          border-bottom-width: 2px; border-radius: 4px; background: var(--surface); }
     footer { margin-top: 3rem; color: var(--muted); font-size: 0.85rem; }
     a { color: var(--accent); }
   </style>
@@ -52,22 +60,22 @@
   <main>
     <h1>Storoff</h1>
     <p class="tagline">L'atelier d'écriture de fiction : manuscrit, personnages, lieux, événements et dictionnaire de l'histoire.</p>
-    <span class="version">Version 1.2.1 · 16 novembre 2026</span>
+    <span class="version">Version 1.3.0 · 16 novembre 2026</span>
 
     <div class="downloads">
-      <a class="download" data-os="windows" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.2.1/Storoff-Setup-1.2.1.exe">
+      <a class="download" data-os="windows" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.3.0/Storoff-Setup-1.3.0.exe">
         <div><strong>Windows</strong><span>Installeur 64 bits (.exe)</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
-      <a class="download" data-os="mac-arm" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.2.1/Storoff-1.2.1-arm64.dmg">
+      <a class="download" data-os="mac-arm" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.3.0/Storoff-1.3.0-arm64.dmg">
         <div><strong>macOS — Apple Silicon</strong><span>Puces M1, M2, M3, M4… (.dmg)</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
-      <a class="download" data-os="mac-intel" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.2.1/Storoff-1.2.1-x64.dmg">
+      <a class="download" data-os="mac-intel" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.3.0/Storoff-1.3.0-x64.dmg">
         <div><strong>macOS — Intel</strong><span>Mac Intel (.dmg)</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
-      <a class="download" data-os="linux" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.2.1/Storoff-1.2.1.AppImage">
+      <a class="download" data-os="linux" href="https://github.com/Unarbre/storoff.github.io/releases/download/1.3.0/Storoff-1.3.0.AppImage">
         <div><strong>Linux</strong><span>AppImage 64 bits, sans installation</span></div>
         <span class="arrow" aria-hidden="true">↓</span>
       </a>
@@ -88,17 +96,27 @@
     </details>
     <details>
       <summary>macOS</summary>
-      <p>Ouvrez le .dmg et glissez Storoff dans Applications. Storoff n'étant pas encore vérifié par Apple, le premier
-      lancement est bloqué (« Apple n'a pas pu confirmer que Storoff ne contenait pas de logiciel malveillant ») :
-      cliquez sur <em>Terminé</em>, ouvrez <em>Réglages Système → Confidentialité et sécurité</em>, puis, en bas,
-      <em>Ouvrir quand même</em> à côté de Storoff, et confirmez. C'est à faire une seule fois.</p>
-      <p>Si macOS indique que Storoff « est endommagé », ou en cas de doute, exécutez dans le Terminal :
-      <code>xattr -cr /Applications/Storoff.app</code>, puis ouvrez Storoff normalement.</p>
+      <p>Ouvrez le .dmg et glissez Storoff dans Applications. Storoff n'étant pas encore vérifié par Apple, macOS
+      bloque son premier lancement (« Apple n'a pas pu confirmer que Storoff ne contenait pas de logiciel
+      malveillant ») : cliquez sur <em>Terminé</em>, puis débloquez-le d'une de ces deux façons. C'est à refaire
+      après chaque mise à jour de Storoff.</p>
+      <ol class="steps">
+        <li><strong>Par les Réglages</strong> :
+        <a href="x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension">ouvrir Confidentialité et
+        sécurité</a> (ou <em>Réglages Système → Confidentialité et sécurité</em>), puis, en bas, cliquez sur
+        <em>Ouvrir quand même</em> à côté de Storoff et confirmez avec votre mot de passe. Le bouton reste affiché
+        environ une heure après le blocage.</li>
+        <li><strong>Par le Terminal</strong>, aussi si macOS indique que Storoff « est endommagé » : copiez la commande,
+          <div class="command"><code id="mac-command">xattr -cr /Applications/Storoff.app</code>
+          <button type="button" class="copy" data-copy="mac-command">Copier</button></div>
+        ouvrez le Terminal (<kbd>⌘</kbd> <kbd>Espace</kbd>, tapez « Terminal », <kbd>Entrée</kbd>), collez-la avec
+        <kbd>⌘</kbd> <kbd>V</kbd> et appuyez sur <kbd>Entrée</kbd>. Ouvrez ensuite Storoff normalement.</li>
+      </ol>
     </details>
     <details>
       <summary>Linux</summary>
       <p>Rendez le fichier exécutable puis lancez-le :
-      <code>chmod +x Storoff-1.2.1.AppImage &amp;&amp; ./Storoff-1.2.1.AppImage</code></p>
+      <code>chmod +x Storoff-1.3.0.AppImage &amp;&amp; ./Storoff-1.3.0.AppImage</code></p>
     </details>
     <details>
       <summary>Où sont mes histoires ?</summary>
@@ -119,6 +137,26 @@
       var link = os && document.querySelector('[data-os="' + os + '"]');
       if (link) link.classList.add('recommended');
     })();
+    // Copy buttons (macOS command). Without clipboard access, selects the command for a manual ⌘ C.
+    document.querySelectorAll('button[data-copy]').forEach(function (button) {
+      var label = button.textContent;
+      button.addEventListener('click', function () {
+        var code = document.getElementById(button.getAttribute('data-copy'));
+        var show = function (text) {
+          button.textContent = text;
+          setTimeout(function () { button.textContent = label; }, 2500);
+        };
+        var select = function () {
+          var range = document.createRange();
+          range.selectNodeContents(code);
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          show('⌘ C pour copier');
+        };
+        if (!navigator.clipboard) return select();
+        navigator.clipboard.writeText(code.textContent).then(function () { show('Copié ✓'); }, select);
+      });
+    });
   </script>
 </body>
 </html>
