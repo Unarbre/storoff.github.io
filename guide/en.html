@@ -46,7 +46,7 @@
 </head>
 <body>
   <nav class="bar">
-    <a class="home" href="../">Storoff 1.3.0</a>
+    <a class="home" href="../">Storoff 1.4.0</a>
     <a class="download" href="../">Download Storoff</a>
   </nav>
   <main>
@@ -118,6 +118,8 @@ section has its <strong>+</strong> button to create, and sometimes an overview b
 click on a sheet offers to delete it.</p>
 <p><strong>The main area</strong> shows the chapter or the sheet that is open. A sheet opened from the text shows in a <strong>side
 panel</strong>, on the right, without leaving the chapter; everything there can be edited.</p>
+<p>One side window at a time: the sheet, <strong>Proofreading</strong> and the <strong>Style lens</strong> take the same place on the
+right, and opening one closes the others. <strong>Esc</strong> closes the one that is open.</p>
 <h3 id="the-home-of-the-story">The home of the story</h3>
 <p><img src="images/en/story-home.jpg" alt="The home of the story" loading="lazy"></p>
 <p>The home shows when the story opens, and whenever its title is clicked in the header.</p>
@@ -150,8 +152,12 @@ ONE&quot;, &quot;IV.&quot;, Markdown <code>#</code> headings…).</li>
 <p>Above the text, the <strong>chapter plan</strong> (it folds) holds:</p>
 <ul>
 <li><strong>What this chapter will contain</strong>: the scenes, what must happen, what the reader must learn.</li>
+<li><strong>Events told</strong>: the events this chapter tells, chosen in <strong>Add an event…</strong> (in the order they happen, with
+their &quot;When&quot;) or created with <strong>New event</strong>. The <a href="#timeline">timeline</a> places them in this chapter; the
+<strong>×</strong> removes one.</li>
 <li><strong>Notes</strong>: notes with a title used as their summary.</li>
 </ul>
+<p><img src="images/en/chapter-events.jpg" alt="The events a chapter tells" loading="lazy"></p>
 <h3 id="the-editor">The editor</h3>
 <p>The text is written on a sheet, <strong>saved automatically</strong> at every pause (Cmd/Ctrl+S saves at once). Under the
 page, a discreet <strong>status line</strong> gives the words of the chapter, the reading time, the number of printed pages
@@ -283,7 +289,7 @@ languages are added in the <a href="#14-settings-and-files">settings</a>.</p>
 <p><img src="images/en/word-menu.jpg" alt="The right-click menu" loading="lazy"></p>
 <p>A <strong>right click</strong> on an underlined word gathers everything in one place: the suggested corrections, <strong>add to
 the story dictionary</strong> (with a definition; its agreements and conjugations are then recognised), <strong>ignore</strong>,
-the grammar issue if any, and the sheet to create.</p>
+the grammar issue if any, the <a href="#synonyms">synonyms</a> and the sheet to create.</p>
 <h3 id="the-grammar-checker">The grammar checker</h3>
 <p>Optional, it is installed from the settings (desktop app): <strong>LanguageTool</strong>, which runs on your computer (the
 text never leaves Storoff), underlines in blue agreements, missing words, punctuation… The last word of a
@@ -296,6 +302,16 @@ corrections in one click, ignore, ignore everywhere, add to the dictionary. <str
 next or previous issue.</p>
 <hr>
 <h2 id="7-reading-over-and-reworking">7. Reading over and reworking</h2>
+<h3 id="synonyms">Synonyms</h3>
+<p><img src="images/en/synonyms.jpg" alt="The synonyms of a verb" loading="lazy"></p>
+<p>A <strong>right click</strong> on a word offers its <strong>synonyms</strong>, already in the form of the word: a verb is conjugated like
+it (&quot;grelottait&quot; → &quot;tremblait, frissonnait&quot;), a noun or an adjective agrees (&quot;belles&quot; → &quot;jolies&quot;), and the
+article before it changes when needed (&quot;le ciel&quot; → &quot;l&#39;azur&quot;). A click replaces the word; <strong>All the
+synonyms…</strong> shows the whole list, meaning by meaning.</p>
+<p>Storoff reads the tense and the person from the words around (je, il, an auxiliary, &quot;que&quot;, the tense of the
+paragraph) and only keeps the forms the dictionary knows. For a noun, check the article: a synonym does not
+always have the same gender. The French thesaurus comes from LibreOffice (Dicollecte, LGPL licence) and works
+offline; the other languages have no synonyms yet.</p>
 <h3 id="find-and-replace">Find and replace</h3>
 <p><img src="images/en/find.jpg" alt="The find bar" loading="lazy"></p>
 <p><strong>Cmd/Ctrl+F</strong> opens a bar above the page, with the selected text as the search. Accents are ignored (&quot;ete&quot;
@@ -328,7 +344,11 @@ opens it again; <strong>Resolve</strong> removes the note and keeps the passage.
 <li><strong>words that come back</strong> and repeated expressions;</li>
 <li><strong>names to check</strong> (a word one letter away from a name of the story).</li>
 </ul>
-<p>A click on a word or an expression highlights it everywhere in the text.</p>
+<p>A click on a word or an expression highlights it everywhere in the text and starts its review, like
+proofreading mode: the panel shows the current occurrence (&quot;1 / 7&quot;) and its <a href="#synonyms">synonyms</a> in its form
+(a click replaces it, and the next occurrence takes its place); <strong>Previous</strong> and <strong>Next</strong> go from one
+occurrence to another.</p>
+<p><img src="images/en/style-review.jpg" alt="The review of a word that comes back" loading="lazy"></p>
 <h3 id="listening-to-the-text">Listening to the text</h3>
 <p><strong>Listen</strong> reads the chapter aloud with a voice of the computer, sentence after sentence from the cursor; the
 sentence being read is selected. With the 👤 icon on, <strong>each character has their own voice</strong>: the narration
@@ -428,8 +448,15 @@ line in both directions, an arrow toward the sheet it names.</p>
 <h3 id="timeline">Timeline</h3>
 <p><img src="images/en/timeline.jpg" alt="The timeline" loading="lazy"></p>
 <p>The button beside the <strong>+</strong> of the events opens the timeline: the events in the order they happen, read from
-their &quot;When&quot;, with &quot;13 years later&quot; between them, the characters and places linked, and the chapter that tells
-it. <strong>As it is told</strong> shows them in the order of the book (flashbacks are flagged).</p>
+their &quot;When&quot;, with &quot;13 years later&quot; between them, the characters and places linked, and the chapters that tell
+them.</p>
+<p><strong>Tell in…</strong> says which chapter tells an event (the same as in the <a href="#the-chapter-plan">chapter plan</a>); several
+chapters can tell it, a prologue and a memory for instance, and the <strong>×</strong> removes one. With no chapter chosen,
+the timeline takes the first one that writes its title (&quot;Mentioned in chapter 2&quot;).</p>
+<p><img src="images/en/timeline-told.jpg" alt="As it is told" loading="lazy"></p>
+<p><strong>As it is told</strong> shows the book chapter by chapter, with the jump in time between two events told one after
+the other: &quot;14 years earlier&quot;, in orange, when the book goes back. Enough to build a story that plays with time
+without getting lost; flashbacks are flagged.</p>
 <ul>
 <li>With a <strong>Birth</strong> field, each character has their age at each event; a character linked to an event before
 their birth or after their death is flagged.</li>
@@ -610,7 +637,7 @@ internet.</p>
 </tr>
 <tr>
 <td>Right click</td>
-<td>Corrections, dictionary, sheet to create</td>
+<td>Corrections, synonyms, dictionary, sheet to create</td>
 </tr>
 <tr>
 <td>⌘F · Enter · ⇧Enter · Esc</td>
@@ -627,6 +654,10 @@ internet.</p>
 <tr>
 <td>F9</td>
 <td>Style lens</td>
+</tr>
+<tr>
+<td>Esc</td>
+<td>Close the side window (sheet, Proofreading, Style lens)</td>
 </tr>
 <tr>
 <td>⌘S</td>

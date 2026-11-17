@@ -46,7 +46,7 @@
 </head>
 <body>
   <nav class="bar">
-    <a class="home" href="../">Storoff 1.3.0</a>
+    <a class="home" href="../">Storoff 1.4.0</a>
     <a class="download" href="../">Télécharger Storoff</a>
   </nav>
   <main>
@@ -116,6 +116,8 @@ dictionnaire. Chaque section a son bouton <strong>+</strong> pour créer, et par
 liens, chronologie). Un clic droit sur une fiche propose de la supprimer.</p>
 <p><strong>La zone principale</strong> montre le chapitre ou la fiche ouverte. Une fiche ouverte depuis le texte s&#39;affiche
 dans un <strong>panneau latéral</strong>, à droite, sans quitter le chapitre ; tout y est modifiable.</p>
+<p>Une seule fenêtre de côté à la fois : la fiche, <strong>Correction</strong> et la <strong>Loupe du style</strong> prennent la même place
+à droite, en ouvrir une ferme les autres. <strong>Échap</strong> ferme celle qui est ouverte.</p>
 <h3 id="laccueil-de-lhistoire">L&#39;accueil de l&#39;histoire</h3>
 <p><img src="images/fr/story-home.jpg" alt="L'accueil de l'histoire" loading="lazy"></p>
 <p>L&#39;accueil s&#39;affiche à l&#39;ouverture de l&#39;histoire, et chaque fois qu&#39;on clique sur son titre dans l&#39;en-tête.</p>
@@ -148,8 +150,12 @@ les noms de l&#39;histoire y sont reconnus et le correcteur y passe ;</li>
 <p>Au-dessus du texte, le <strong>plan du chapitre</strong> (repliable) contient :</p>
 <ul>
 <li><strong>Ce que contiendra ce chapitre</strong> : les scènes, ce qui doit arriver, ce que le lecteur doit apprendre.</li>
+<li><strong>Événements racontés</strong> : les événements que ce chapitre raconte, choisis dans <strong>Ajouter un événement…</strong>
+(dans l&#39;ordre où ils se passent, avec leur « Quand ») ou créés avec <strong>Nouvel événement</strong>. La
+<a href="#chronologie">chronologie</a> les place dans ce chapitre ; le <strong>×</strong> en retire un.</li>
 <li><strong>Notes</strong> : des notes avec un titre qui sert de résumé.</li>
 </ul>
+<p><img src="images/fr/chapter-events.jpg" alt="Les événements racontés par un chapitre" loading="lazy"></p>
 <h3 id="léditeur">L&#39;éditeur</h3>
 <p>Le texte s&#39;écrit sur une feuille, <strong>enregistrée automatiquement</strong> à chaque pause (Cmd/Ctrl+S enregistre tout de
 suite). Sous la page, une <strong>ligne d&#39;état</strong> discrète donne les mots du chapitre, le temps de lecture, le nombre
@@ -285,7 +291,7 @@ fourni, d&#39;autres langues s&#39;ajoutent dans les <a href="#14-paramètres-et
 <p><img src="images/fr/word-menu.jpg" alt="Le menu du clic droit" loading="lazy"></p>
 <p>Un <strong>clic droit</strong> sur un mot souligné rassemble tout au même endroit : les corrections proposées, <strong>ajouter au
 dictionnaire de l&#39;histoire</strong> (avec une définition ; ses accords et conjugaisons sont ensuite reconnus),
-<strong>ignorer</strong>, le problème de grammaire éventuel, et la fiche à créer.</p>
+<strong>ignorer</strong>, le problème de grammaire éventuel, les <a href="#les-synonymes">synonymes</a> et la fiche à créer.</p>
 <h3 id="le-correcteur-grammatical">Le correcteur grammatical</h3>
 <p>Optionnel, il s&#39;installe depuis les paramètres (application de bureau) : <strong>LanguageTool</strong>, qui tourne sur votre
 ordinateur (le texte ne quitte jamais Storoff), souligne en bleu les accords, mots manquants, ponctuation… Le
@@ -299,6 +305,16 @@ corrections en un clic, ignorer, ignorer partout, ajouter au dictionnaire. <stro
 l&#39;erreur suivante ou précédente.</p>
 <hr>
 <h2 id="7-relire-et-retravailler">7. Relire et retravailler</h2>
+<h3 id="les-synonymes">Les synonymes</h3>
+<p><img src="images/fr/synonyms.jpg" alt="Les synonymes d'un verbe" loading="lazy"></p>
+<p>Un <strong>clic droit</strong> sur un mot propose ses <strong>synonymes</strong>, déjà à la forme du mot : un verbe est conjugué comme
+lui (« grelottait » → « tremblait, frissonnait »), un nom ou un adjectif s&#39;accorde (« belles » → « jolies »),
+et l&#39;article devant change si besoin (« le ciel » → « l&#39;azur »). Un clic remplace le mot ; <strong>Tous les
+synonymes…</strong> montre la liste complète, sens par sens.</p>
+<p>Storoff lit le temps et la personne dans les mots autour (je, il, un auxiliaire, « que », le temps du
+paragraphe) et ne garde que les formes que le dictionnaire connaît. Pour un nom, vérifiez l&#39;article : un
+synonyme n&#39;a pas toujours le même genre. Le dictionnaire des synonymes français vient de LibreOffice
+(Dicollecte, licence LGPL) et fonctionne sans connexion ; les autres langues n&#39;ont pas encore de synonymes.</p>
 <h3 id="rechercher-et-remplacer">Rechercher et remplacer</h3>
 <p><img src="images/fr/find.jpg" alt="La barre de recherche" loading="lazy"></p>
 <p><strong>Cmd/Ctrl+F</strong> ouvre une barre au-dessus de la page, avec le texte sélectionné comme recherche. Les accents
@@ -333,7 +349,11 @@ lisibilité ;</li>
 <li>les <strong>mots qui reviennent</strong> et les expressions répétées ;</li>
 <li>les <strong>noms mal orthographiés</strong> probables (un mot à une lettre d&#39;un nom de l&#39;histoire).</li>
 </ul>
-<p>Un clic sur un mot ou une expression la surligne partout dans le texte.</p>
+<p>Un clic sur un mot ou une expression la surligne partout dans le texte et lance sa revue, comme le mode
+correction : le panneau montre l&#39;occurrence en cours (« 1 / 7 ») et ses <a href="#les-synonymes">synonymes</a> à sa forme
+(un clic la remplace, l&#39;occurrence suivante prend sa place) ; <strong>Précédente</strong> et <strong>Suivante</strong> passent d&#39;une
+occurrence à l&#39;autre.</p>
+<p><img src="images/fr/style-review.jpg" alt="La revue d'un mot qui revient" loading="lazy"></p>
 <h3 id="écouter-le-texte">Écouter le texte</h3>
 <p><strong>Écouter</strong> lit le chapitre à voix haute avec une voix de l&#39;ordinateur, phrase après phrase depuis le curseur ;
 la phrase lue est sélectionnée. Avec l&#39;icône 👤 active, <strong>chaque personnage a sa voix</strong> : la narration garde la
@@ -436,8 +456,16 @@ ligne dans les deux sens, une flèche vers la fiche qu&#39;il désigne.</p>
 <h3 id="chronologie">Chronologie</h3>
 <p><img src="images/fr/timeline.jpg" alt="La chronologie" loading="lazy"></p>
 <p>Le bouton à côté du <strong>+</strong> des événements ouvre la chronologie : les événements dans l&#39;ordre où ils se passent,
-lus dans leur « Quand », avec « 13 ans plus tard » entre eux, les personnages et lieux liés, et le chapitre qui
-le raconte. <strong>Ordre du récit</strong> les montre dans l&#39;ordre du livre (les retours en arrière sont signalés).</p>
+lus dans leur « Quand », avec « 13 ans plus tard » entre eux, les personnages et lieux liés, et les chapitres
+qui les racontent.</p>
+<p><strong>Raconter dans…</strong> dit quel chapitre raconte un événement (le même dans le
+<a href="#le-plan-du-chapitre">plan du chapitre</a>) ; plusieurs chapitres peuvent le raconter, un prologue et un
+souvenir par exemple, et le <strong>×</strong> en retire un. Sans chapitre choisi, la chronologie prend le premier qui écrit
+son titre (« Mentionné au chapitre 2 »).</p>
+<p><img src="images/fr/timeline-told.jpg" alt="L'ordre du récit" loading="lazy"></p>
+<p><strong>Ordre du récit</strong> montre le livre chapitre par chapitre, avec le saut dans le temps entre deux événements
+racontés l&#39;un après l&#39;autre : « 14 ans plus tôt », en orange, quand le livre revient en arrière. De quoi
+construire un récit qui joue avec le temps sans s&#39;y perdre ; les retours en arrière sont signalés.</p>
 <ul>
 <li>Avec un champ <strong>Naissance</strong>, chaque personnage a son âge à chaque événement ; un personnage lié à un
 événement avant sa naissance ou après sa mort est signalé.</li>
@@ -624,7 +652,7 @@ envoyé sur internet.</p>
 </tr>
 <tr>
 <td>Clic droit</td>
-<td>Corrections, dictionnaire, fiche à créer</td>
+<td>Corrections, synonymes, dictionnaire, fiche à créer</td>
 </tr>
 <tr>
 <td>⌘F · Entrée · ⇧Entrée · Échap</td>
@@ -641,6 +669,10 @@ envoyé sur internet.</p>
 <tr>
 <td>F9</td>
 <td>Loupe du style</td>
+</tr>
+<tr>
+<td>Échap</td>
+<td>Fermer la fenêtre de côté (fiche, Correction, Loupe du style)</td>
 </tr>
 <tr>
 <td>⌘S</td>
