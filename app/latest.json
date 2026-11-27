@@ -1,12 +1,12 @@
 {
-  "version": "1.8.0",
-  "tag": "1.8.0",
+  "version": "1.9.0",
+  "tag": "1.9.0",
   "pageUrl": "https://unarbre.github.io/storoff.github.io/",
   "downloads": {
-    "windows": "https://github.com/Unarbre/storoff.github.io/releases/download/1.8.0/Storoff-Setup-1.8.0.exe",
-    "mac-arm": "https://github.com/Unarbre/storoff.github.io/releases/download/1.8.0/Storoff-1.8.0-arm64.dmg",
-    "mac-intel": "https://github.com/Unarbre/storoff.github.io/releases/download/1.8.0/Storoff-1.8.0-x64.dmg",
-    "linux": "https://github.com/Unarbre/storoff.github.io/releases/download/1.8.0/Storoff-1.8.0.AppImage"
+    "windows": "https://github.com/Unarbre/storoff.github.io/releases/download/1.9.0/Storoff-Setup-1.9.0.exe",
+    "mac-arm": "https://github.com/Unarbre/storoff.github.io/releases/download/1.9.0/Storoff-1.9.0-arm64.dmg",
+    "mac-intel": "https://github.com/Unarbre/storoff.github.io/releases/download/1.9.0/Storoff-1.9.0-x64.dmg",
+    "linux": "https://github.com/Unarbre/storoff.github.io/releases/download/1.9.0/Storoff-1.9.0.AppImage"
   },
-  "publishedAt": "2026-11-22T19:01:26.234Z"
+  "publishedAt": "2026-11-27T12:27:29.034Z"
 }
